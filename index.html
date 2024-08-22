@@ -7,47 +7,46 @@
     <title>Loyd's y Navarro</title>
     <style>
         body 
-		{
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h1 {
-            font-size: 2em;
-        }
-        p {
-            font-size: 1em;
-        }
+		.resolucion {
+    width: 99%;
+    text-align: center;
+}
 
-        @media (max-width: 768px) {
-            .container {
-                width: 90%;
-            }
-            h1 {
-                font-size: 1.5em;
-            }
-            p {
-                font-size: 0.9em;
-            }
-        }
 
-        @media (max-width: 480px) {
-            .container {
-                width: 100%;
-                padding: 10px;
-            }
-            h1 {
-                font-size: 1.2em;
-            }
-            p {
-                font-size: 0.8em;
-            }
-        }
+/**Movil**/
+
+@media (max-width: 767px) {
+    .desktop {
+        display: none;
+    }
+    .tablet {
+        display: none;
+    }
+}
+
+
+/**Tablet**/
+
+@media (min-width: 768px) and (max-width: 990px) {
+    .desktop {
+        display: none;
+    }
+    .movil {
+        display: none;
+    }
+}
+
+
+/**Escritorio**/
+
+@media (min-width: 991px) {
+    .tablet {
+        display: none;
+    }
+    .movil {
+        display: none;
+    }
+}
     
 		
 		{
@@ -235,7 +234,9 @@
 		
     </style>
 </head>
+
 <body>
+<div class="movil">
     <!-- Pantalla de bienvenida -->
     <div id="welcome-screen">
         <div>
@@ -664,5 +665,7 @@
             });
         }
     </script>
+	</div>
+    </div>
 </body>
 </html>
