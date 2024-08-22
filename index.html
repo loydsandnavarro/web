@@ -2,12 +2,16 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Loyd's y Navarro</title>
     <style>
-        body 
-		.resolucion {
+		
+		body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .resolucion {
     width: 99%;
     text-align: center;
 }
@@ -47,30 +51,19 @@
         display: none;
     }
 }
-    
-		
-		{
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            position: relative;
-            min-height: 100vh; /* Asegura que el contenido tenga al menos el tamaño de la ventana */
-            box-sizing: border-box;
-        }
         header {
             background-color: #00183c;
             color: #fff;
             padding: 10px 0;
             position: fixed;
-            width: 100%;
+            width: 97%;
             top: 0;
-            left: 0;
+            left: 2;
             z-index: 1000;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 20px;
+            padding: 0 18px;
         }
         header .logo img {
             height: 110px;
@@ -84,14 +77,14 @@
             flex-wrap: wrap; /* Permite que el menú se ajuste en varias líneas si es necesario */
         }
         nav ul li {
-            margin: 0 17px; /* Mayor margen para evitar que se amontonen los elementos */
+            margin: 0 8px; /* Mayor margen para evitar que se amontonen los elementos */
             position: relative;
         }
         nav ul li a {
             color: #fff;
             text-decoration: none;
             padding: 6px 6px; /* Ajuste del relleno para un mejor ajuste */
-            font-size: 13px; /* Ajusta el tamaño del texto si es necesario */
+            font-size: 14px; /* Ajusta el tamaño del texto si es necesario */
             display: block;
         }
         nav ul li a:hover {
@@ -102,7 +95,7 @@
         nav ul li .submenu {
             display: none;
             position: absolute;
-            top: 100%;
+            top: 80%;
             left: 0;
             background-color: #00183c;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -135,8 +128,8 @@
             padding: 80px;
             display: none;
             position: center;
-			
-        }
+			 text-align: center;
+			   }
         .info-section.active {
             display: block;
         }
@@ -232,11 +225,12 @@
             transition: width 0.4s ease;
         }
 		
+		
     </style>
 </head>
-
 <body>
-<div class="movil">
+
+
     <!-- Pantalla de bienvenida -->
     <div id="welcome-screen">
         <div>
@@ -250,11 +244,14 @@
     </div>
 
     <header>
+	
+		
         <div class="logo">
             <a href="#Inicio">
                 <img src="path/to/logo-loyds-navarro.png" alt="Logo de Loyd's y Navarro">
             </a>
         </div>
+			<div class="resolucion">
         <nav>
             <ul>
                 <li><a href="#Inicio" onclick="showSection('Inicio')" aria-label="Ir a Inicio">Inicio</a></li>
@@ -276,7 +273,7 @@
             </ul>
         </nav>
     </header>
- 	<div class="main-content">
+ <div class="main-content">
 			<section id="Inicio" class="info-section active">
 				<div class="video-container">
 					<video autoplay muted loop>
@@ -331,6 +328,7 @@
 			<section id="orvi" class="info-section" style="background-image: url('path/to/orvi.jpg'); background-size: cover; background-position: center; color: #333;">
 			   <h2>Orvi</h2>
 			   <iframe src="https://www.youtube.com/embed/YipVnndbnao?autoplay=1&controls=1&modestbranding=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				    <ul style="padding-justify: 20px; margin: 0; color: #333; text-align: justify;">
 				<p>El Seguro que proporciona seguridad, protección, así como un ahorro para ti y tu familia</p>
 				<p>Orvi es un seguro de vida que te brinda la seguridad de que tus seres queridos estarán protegidos financieramente en caso de fallecimiento o invalidez.</p>
 				<h3>Características:</h3>
@@ -339,13 +337,15 @@
 					<li>Protección por invalidez total y permanente.</li>
 					<li>Opción de agregar beneficios adicionales según tus necesidades.</li>
 					<li>Asistencia personalizada para el titular y beneficiarios.</li>
-				
+				 </ul>
+
 			</section>
 
 			<section id="imaginaSer" class="info-section" style="background-image: url('path/to/imag.jpg'); background-size: cover; background-position: center; color: #333;">
 				<h2>Imagina Ser</h2>
 			<iframe src="https://www.youtube.com/embed/yrb-SnchZ2Y?autoplay=1&controls=1&modestbranding=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 			<!-- ... your modal content ... -->
+				    <ul style="padding-justify: 20px; margin: 0; color: #333; text-align: justify;">
 				<p>El Seguro que proporciona seguridad, protección, así como un ahorro para ti y tu familia”</p>
 				<p><strong>Imagina Ser</strong> es un seguro de vida y ahorro diseñado para ofrecer tranquilidad y seguridad financiera a largo plazo, adaptándose a las necesidades individuales y familiares.</p>
 				<h3>Características:</h3>
@@ -354,7 +354,8 @@
 					<li>Flexibilidad en el ahorro y la inversión.</li>
 					<li>Posibilidad de retirar fondos en caso de emergencia.</li>
 					<li>Protección ante riesgos de fallecimiento e invalidez.</li>
-			  
+			   </ul>
+
 				
 			</section>
 <section id="gastosMedicos" class="info-section" style="background-image: url('path/to/background-image.jpg'); background-size: cover; background-position: center; color: #333; padding: 20px;">
@@ -612,7 +613,7 @@
 <!-- end Google Calendar Appointment Scheduling -->
 			
 			</section>
-		</div>
+		
 
 		<footer>
 			<div class="social-buttons">
@@ -628,7 +629,7 @@
 			</div>
 			<h4>Teléfonos: 55 4468 3547 / 722 588 6862. Email: reservamatematica@gmail.com</h4>
 		</footer>
-
+</div>
     <script>
         // Simula la carga de contenido y oculta la pantalla de bienvenida
         window.addEventListener('load', () => {
@@ -666,6 +667,5 @@
         }
     </script>
 	</div>
-    </div>
 </body>
 </html>
