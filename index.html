@@ -275,12 +275,12 @@
     </header>
  <div class="main-content">
 			<section id="Inicio" class="info-section active">
-				<div class="video-container">
-					<video autoplay muted loop>
-						<source src="path/to/im2.mp4" type="video/mp4">
-						Tu navegador no soporta la etiqueta de video.
-					</video>
-				</div>				
+				    <div class="video-container">
+        <video id="myVideo" autoplay loop>
+            <source src="path/to/im2.mp4" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
+    </div>				
 			</section>
 
 		
@@ -665,6 +665,10 @@
                 }
             });
         }
+	    document.addEventListener('DOMContentLoaded', function() {
+        var video = document.getElementById('myVideo');
+        video.volume = 0.7; // El volumen se establece entre 0.0 (silencio) y 1.0 (máximo)
+    });
     </script>
 	</div>
 </body>
