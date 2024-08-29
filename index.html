@@ -665,9 +665,11 @@
                 }
             });
         }
-	    document.addEventListener('DOMContentLoaded', function() {
+    window.addEventListener('load', function() {
         var video = document.getElementById('myVideo');
-        video.volume = 0.7; // El volumen se establece entre 0.0 (silencio) y 1.0 (máximo)
+        if (video) {
+            video.volume = 1.0; // Ajusta el volumen al 70%
+        }
     });
     </script>
 	</div>
