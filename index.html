@@ -571,7 +571,7 @@
   var target = document.currentScript;
   window.addEventListener('load', function() {
     calendar.schedulingButton.load({
-      url: 'https://calendar.google.com/calendar/5appointments/schedules/AcZssZ3LYB_3Dz3pgloorODn9XUZ3WHCmP_pgc3ithe4tHf-6YaSwVf9AzTKfRko1L33AKq5OSHF2rSf?gv=true',
+      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3LYB_3Dz3pgloorODn9XUZ3WHCmP_pgc3ithe4tHf-6YaSwVf9AzTKfRko1L33AKq5OSHF2rSf?gv=true',
       color: '#039BE5',
       label: 'Reservar una cita',
       target,
@@ -580,7 +580,6 @@
 })();
 </script>
 <!-- end Google Calendar Appointment Scheduling -->
-			
 			</section>
 
 			<section id="valores" class="info-section">
@@ -600,10 +599,23 @@
 	<p>/</p>
 	<h4>¡Envía tu CV hoy!</h4>
 	<p>Si tienes pasión por el servicio al cliente y quieres crecer en un sector que importa, ¡esperamos conocerte! Envía tu CV a [reservamatematica@gmail.com] y únete a nosotros en esta emocionante trayectoria en seguros de vida y ahorro.</p>
-<!-- Google Calendar Appointment Scheduling begin -->
-<iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3H6wXGC_jiK0d61kOIcs3yMTkUV-LF5t0uC4UgMXgjGPM6V0y-J_MaM6yTlovARrH7FeyQqEEt?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
-<!-- end Google Calendar Appointment Scheduling -->
-			
+			<!-- Google Calendar Appointment Scheduling begin -->
+<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+<script>
+(function() {
+  var target = document.currentScript;
+  window.addEventListener('load', function() {
+    calendar.schedulingButton.load({
+      url: 'https://docs.google.com/forms/d/e/1FAIpQLSfQmtUIKi_CAbICRgC4jg07Dsrwgtz2On7ZOKtPoVGXjjgi2A/viewform?embedded=true',
+      color: '#039BE5',
+      label: 'Unete a nuestro equipo',
+      target,
+    });
+  });
+})();
+</script>
+				<!-- end Google Calendar Appointment Scheduling -->			
 			</section>
 		
 
