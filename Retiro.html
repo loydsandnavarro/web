@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2113.65">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    span.s1 {font: 12.0px 'Apple Color Emoji'}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="es"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Test de Retiro&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.question {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.result {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>form {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function calcularResultado() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let puntuacion = 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let respuestas = document.querySelectorAll("input[type='radio']:checked");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>respuestas.forEach(radio =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>puntuacion += parseInt(radio.value);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>let resultadoTexto = "";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (puntuacion &gt;= 13) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>resultadoTexto = "¡Felicidades! <span class="s1">🎉</span> Estás bien encaminado hacia un retiro seguro y cómodo.";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else if (puntuacion &gt;= 8) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>resultadoTexto = "Vas por buen camino, pero aún hay ajustes por hacer.";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else if (puntuacion &gt;= 4) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>resultadoTexto = "Es momento de actuar. Tu preparación para el retiro es baja.";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>resultadoTexto = "<span class="s1">🚨</span> ¡Urgente! Necesitas un plan YA.";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("resultado").innerText = `Puntuación: ${puntuacion}\n${resultadoTexto}`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("asesoria").style.display = "block";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;<span class="s1">📝</span> Test: ¿Qué tan preparado estás para tu retiro?&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;form&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="question"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;<span class="s1">1️⃣</span> ¿A qué edad empezaste (o planeas empezar) a ahorrar para tu retiro?&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;&lt;input type="radio" name="q1" value="3"&gt; Antes de los 30 años <span class="s1">✅</span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;&lt;input type="radio" name="q1" value="2"&gt; Entre los 30 y 40 años <span class="s1">🔶</span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;&lt;input type="radio" name="q1" value="1"&gt; Después de los 40 años <span class="s1">❌</span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;&lt;input type="radio" name="q1" value="0"&gt; Aún no he pensado en ello <span class="s1">😬</span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="question"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;<span class="s1">2️⃣</span> ¿Cuánto de tus ingresos ahorras mensualmente para el retiro?&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;&lt;input type="radio" name="q2" value="3"&gt; Más del 15% <span class="s1">✅</span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;&lt;input type="radio" name="q2" value="2"&gt; Entre el 10% y 15% <span class="s1">🔶</span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;&lt;input type="radio" name="q2" value="1"&gt; Menos del 10% <span class="s1">❌</span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;&lt;input type="radio" name="q2" value="0"&gt; No ahorro nada <span class="s1">😬</span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="question"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;<span class="s1">3️⃣</span> ¿Tienes un plan de retiro o inversión asegurado?&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;&lt;input type="radio" name="q3" value="3"&gt; Sí, tengo un plan sólido <span class="s1">✅</span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;&lt;input type="radio" name="q3" value="2"&gt; Tengo algo ahorrado <span class="s1">🔶</span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;&lt;input type="radio" name="q3" value="1"&gt; No, pero quiero empezar <span class="s1">❌</span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;&lt;input type="radio" name="q3" value="0"&gt; No tengo nada <span class="s1">😬</span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="question"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;<span class="s1">4️⃣</span> ¿Sabes cuánto necesitarás para mantener tu estilo de vida en el retiro?&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;&lt;input type="radio" name="q4" value="3"&gt; Sí, he hecho cálculos <span class="s1">✅</span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;&lt;input type="radio" name="q4" value="2"&gt; Tengo una idea aproximada <span class="s1">🔶</span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;&lt;input type="radio" name="q4" value="1"&gt; No estoy seguro <span class="s1">❌</span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;&lt;input type="radio" name="q4" value="0"&gt; Nunca lo he pensado <span class="s1">😬</span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="question"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;<span class="s1">5️⃣</span> Si hoy dejaras de trabajar, ¿podrías mantenerte sin preocupaciones financieras?&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;&lt;input type="radio" name="q5" value="3"&gt; Sí, tengo suficientes ahorros <span class="s1">✅</span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;&lt;input type="radio" name="q5" value="2"&gt; Podría aguantar algunos años <span class="s1">🔶</span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;&lt;input type="radio" name="q5" value="1"&gt; No, dependería de mi pensión <span class="s1">❌</span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;&lt;input type="radio" name="q5" value="0"&gt; No tengo ningún plan <span class="s1">😬</span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button type="button" onclick="calcularResultado()"&gt;Ver Resultado&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/form&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p id="resultado" class="result"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="asesoria" style="display:none; margin-top:20px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="https://calendar.app.google/bDpWiLTeSWBEttyM9" target="_blank" rel="noopener noreferrer" style="text-decoration:none; padding:10px; background:#28a745; color:white; border-radius:5px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span><span class="s1">🔍</span> Agendar una asesoría gratuita</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
