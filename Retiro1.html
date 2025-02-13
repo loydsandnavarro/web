@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Test de Retiro</title>
+
+    <style>
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+
+            text-align: center;
+
+        }
+
+        .question {
+
+            margin-bottom: 20px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+        }
+
+        .result {
+
+            margin-top: 20px;
+
+            font-weight: bold;
+
+        }
+
+        form {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+        }
+
+    </style>
+
+    <script>
+
+        function calcularResultado() {
+
+            let puntuacion = 0;
+
+            let respuestas = document.querySelectorAll("input[type='radio']:checked");
+
+            respuestas.forEach(radio => {
+
+                puntuacion += parseInt(radio.value);
+
+            });
+
+            
+
+            let resultadoTexto = "";
+
+            if (puntuacion >= 13) {
+
+                resultadoTexto = "¡Felicidades! 🎉 Estás bien encaminado hacia un retiro seguro y cómodo.";
+
+            } else if (puntuacion >= 8) {
+
+                resultadoTexto = "Vas por buen camino, pero aún hay ajustes por hacer.";
+
+            } else if (puntuacion >= 4) {
+
+                resultadoTexto = "Es momento de actuar. Tu preparación para el retiro es baja.";
+
+            } else {
+
+                resultadoTexto = "🚨 ¡Urgente! Necesitas un plan YA.";
+
+            }
+
+            
+
+            document.getElementById("resultado").innerText = `Puntuación: ${puntuacion}\n${resultadoTexto}`;
+
+            document.getElementById("asesoria").style.display = "block";
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <h1>📝 Test: ¿Qué tan preparado estás para tu retiro?</h1>
+
+    <form>
+
+        <div class="question">
+
+            <p>1️⃣ ¿A qué edad empezaste (o planeas empezar) a ahorrar para tu retiro?</p>
+
+            <label><input type="radio" name="q1" value="3"> Antes de los 30 años ✅</label>
+
+            <label><input type="radio" name="q1" value="2"> Entre los 30 y 40 años 🔶</label>
+
+            <label><input type="radio" name="q1" value="1"> Después de los 40 años ❌</label>
+
+            <label><input type="radio" name="q1" value="0"> Aún no he pensado en ello 😬</label>
+
+        </div>
+
+        <div class="question">
+
+            <p>2️⃣ ¿Cuánto de tus ingresos ahorras mensualmente para el retiro?</p>
+
+            <label><input type="radio" name="q2" value="3"> Más del 15% ✅</label>
+
+            <label><input type="radio" name="q2" value="2"> Entre el 10% y 15% 🔶</label>
+
+            <label><input type="radio" name="q2" value="1"> Menos del 10% ❌</label>
+
+            <label><input type="radio" name="q2" value="0"> No ahorro nada 😬</label>
+
+        </div>
+
+        <div class="question">
+
+            <p>3️⃣ ¿Tienes un plan de retiro o inversión asegurado?</p>
+
+            <label><input type="radio" name="q3" value="3"> Sí, tengo un plan sólido ✅</label>
+
+            <label><input type="radio" name="q3" value="2"> Tengo algo ahorrado 🔶</label>
+
+            <label><input type="radio" name="q3" value="1"> No, pero quiero empezar ❌</label>
+
+            <label><input type="radio" name="q3" value="0"> No tengo nada 😬</label>
+
+        </div>
+
+        <div class="question">
+
+            <p>4️⃣ ¿Sabes cuánto necesitarás para mantener tu estilo de vida en el retiro?</p>
+
+            <label><input type="radio" name="q4" value="3"> Sí, he hecho cálculos ✅</label>
+
+            <label><input type="radio" name="q4" value="2"> Tengo una idea aproximada 🔶</label>
+
+            <label><input type="radio" name="q4" value="1"> No estoy seguro ❌</label>
+
+            <label><input type="radio" name="q4" value="0"> Nunca lo he pensado 😬</label>
+
+        </div>
+
+        <div class="question">
+
+            <p>5️⃣ Si hoy dejaras de trabajar, ¿podrías mantenerte sin preocupaciones financieras?</p>
+
+            <label><input type="radio" name="q5" value="3"> Sí, tengo suficientes ahorros ✅</label>
+
+            <label><input type="radio" name="q5" value="2"> Podría aguantar algunos años 🔶</label>
+
+            <label><input type="radio" name="q5" value="1"> No, dependería de mi pensión ❌</label>
+
+            <label><input type="radio" name="q5" value="0"> No tengo ningún plan 😬</label>
+
+        </div>
+
+        <button type="button" onclick="calcularResultado()">Ver Resultado</button>
+
+    </form>
+
+    <p id="resultado" class="result"></p>
+
+    <div id="asesoria" style="display:none; margin-top:20px;">
+
+        <a href="https://calendar.app.google/bDpWiLTeSWBEttyM9" target="_blank" rel="noopener noreferrer" style="text-decoration:none; padding:10px; background:#28a745; color:white; border-radius:5px;">
+
+            🔍 Agendar una asesoría gratuita
+
+        </a>
+
+    </div>
+
+</body>
+
+</html>
