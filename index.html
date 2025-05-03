@@ -2,274 +2,292 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
     <title>Loyd's y Navarro</title>
     <style>
-		
-		body {
+        /* Estilos Base */
+        body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f5f5f5;
+            font-size: 1rem;
         }
-        .resolucion {
-    width: 99%;
-    text-align: center;
-}
 
-
-/**Movil**/
-
-@media (max-width: 767px) {
-    .desktop {
-        display: none;
-    }
-    .tablet {
-        display: none;
-    }
-}
-
-
-/**Tablet**/
-
-@media (min-width: 768px) and (max-width: 990px) {
-    .desktop {
-        display: none;
-    }
-    .movil {
-        display: none;
-    }
-}
-
-
-/**Escritorio**/
-
-@media (min-width: 991px) {
-    .tablet {
-        display: none;
-    }
-    .movil {
-        display: none;
-    }
-}
         header {
             background-color: #00183c;
             color: #fff;
-            padding: 10px 0;
+            padding: 1rem;
             position: fixed;
-            width: 97%;
+            width: 100%;
             top: 0;
-            left: 2;
+            left: 0;
             z-index: 1000;
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            padding: 0 18px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        header .logo img {
-            height: 110px;
+
+        .logo img {
+            height: 4rem;
+            transition: all 0.3s ease;
         }
+
         nav ul {
             list-style: none;
-            padding: 10;
-            margin: 10;
+            padding: 0;
+            margin: 0;
             display: flex;
-            align-items: left;
-            flex-wrap: wrap; /* Permite que el menú se ajuste en varias líneas si es necesario */
+            gap: 1rem;
         }
+
         nav ul li {
-            margin: 0 8px; /* Mayor margen para evitar que se amontonen los elementos */
             position: relative;
         }
+
         nav ul li a {
             color: #fff;
             text-decoration: none;
-            padding: 6px 6px; /* Ajuste del relleno para un mejor ajuste */
-            font-size: 14px; /* Ajusta el tamaño del texto si es necesario */
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
             display: block;
+            white-space: nowrap;
         }
+
         nav ul li a:hover {
             background-color: #003366;
-            border-radius: 5px; /* Ajuste del radio del borde */
         }
-        /* Ajustes para el submenú */
-        nav ul li .submenu {
+
+        .submenu {
             display: none;
             position: absolute;
-            top: 80%;
+            top: 100%;
             left: 0;
             background-color: #00183c;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            min-width: 200px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             border-radius: 5px;
-            padding: 0;
-            margin: 0;
-            z-index: 1000;
+            z-index: 1001;
         }
-        nav ul li .submenu li {
-            margin: 0;
-        }
-        nav ul li .submenu li a {
-            padding: 8px 15px; /* Ajuste del relleno del submenú */
-            white-space: nowrap; /* Evita el ajuste de línea en elementos largos */
-        }
+
         nav ul li:hover .submenu {
             display: block;
         }
+
         .main-content {
-            padding: 0px;
-            text-align: center;
-            display: none; /* Ocultar el contenido principal inicialmente */
+            margin-top: 7.5rem;
+            padding: 1.5rem;
         }
+
         .info-section {
             background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-               margin: 190px auto;
-    	max-width: 1000px;
-   	 padding: 100px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 1000px;
             display: none;
-            position: center;
-			 text-align: center;
-			   }
+        }
+
         .info-section.active {
             display: block;
         }
-        .info-section h2 {
-            color: #333;
-            margin-top: 0;
-        }
-        .info-section iframe {
-            max-width: 100%;
-            height: auto;
-        }
-        footer {
-            background-color: #00183c;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-        footer a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        /* Estilo específico para el video en la sección de inicio */
+
         .video-container {
             position: relative;
             width: 100%;
-            padding-top: 56.25%; /* Proporción de 16:9 */
-            margin-bottom: 20px;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            padding-top: 56.25%;
         }
-        .video-container video {
+
+        .video-container video,
+        .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-        .social-buttons {
-            margin-top: 10px;
-            text-align: center;
-        }
-        .social-buttons a {
-            margin: 0 10px;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .social-buttons img {
-            width: 30px;
-            height: 30px;
+            border-radius: 10px;
         }
 
-        /* Estilos para la pantalla de bienvenida */
+        footer {
+            background-color: #00183c;
+            color: #fff;
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .social-buttons {
+            margin: 1.5rem 0;
+        }
+
+        .social-buttons img {
+            width: 2.5rem;
+            height: 2.5rem;
+            margin: 0 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        /* Pantalla de carga */
         #welcome-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #003366;
-            color: #fff;
+            background-color: #00183c;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             z-index: 9999;
-            text-align: center;
         }
-        #welcome-screen .logo img {
-            height: 300px;
-            margin-bottom: 20px;
-        }
-        #welcome-screen .progress-container {
-            width: 100%;
-            max-width: 500px;
+
+        .progress-container {
+            width: 18rem;
+            height: 1rem;
             background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
             overflow: hidden;
-            margin-top: 20px;
         }
-        #welcome-screen .progress-bar {
-            height: 25px;
+
+        #progress-bar {
+            height: 100%;
             background-color: #6fa8dc;
-            width: 0; /* Inicialmente en 0% */
-            text-align: center;
-            color: white;
-            line-height: 25px;
-            font-weight: bold;
-            transition: width 0.4s ease;
+            width: 0%;
+            transition: width 0.3s ease;
         }
-		
-		
+
+        /* Menú Hamburguesa */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            header {
+                padding: 0.5rem;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                width: 100%;
+                display: none;
+            }
+
+            nav.active {
+                display: block;
+                margin-top: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+
+            nav ul li a {
+                padding: 1rem;
+                font-size: 1.1rem;
+            }
+
+            .submenu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .logo img {
+                height: 3.5rem;
+            }
+
+            .main-content {
+                margin-top: 6rem;
+                padding: 1rem;
+            }
+
+            .info-section {
+                margin: 1rem auto;
+                padding: 1rem;
+            }
+
+            button {
+                width: 100%;
+                margin: 0.5rem 0;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                font-size: 14px;
+            }
+
+            .main-content {
+                margin-top: 5rem;
+            }
+        }
     </style>
 </head>
 <body>
-
-
-    <!-- Pantalla de bienvenida -->
+    <!-- Pantalla de carga -->
     <div id="welcome-screen">
         <div>
             <div class="logo">
-                <img src="path/to/logo-loyds-navarro.png" alt="Logo de Loyd's y Navarro">
+                <img src="path/to/logo-loyds-navarro.png" alt="Logo Loyd's y Navarro">
             </div>
             <div class="progress-container">
-                <div class="progress-bar" id="progress-bar">Cargando...</div>
+                <div id="progress-bar"></div>
             </div>
         </div>
     </div>
 
     <header>
-	
-		
         <div class="logo">
             <a href="#Inicio">
-                <img src="path/to/logo-loyds-navarro.png" alt="Logo de Loyd's y Navarro">
+                <img src="path/to/logo-loyds-navarro.png" alt="Logo">
             </a>
         </div>
-			<div class="resolucion">
+        <button class="menu-toggle">☰</button>
         <nav>
             <ul>
-                <li><a href="#Inicio" onclick="showSection('Inicio')" aria-label="Ir a Inicio">Inicio</a></li>
-                <li><a href="#misionVision" onclick="showSection('misionVision')" aria-label="Ir a Misión y Visión">Misión y Visión</a></li>
-                <li><a href="#valores" onclick="showSection('valores')" aria-label="Ir a Valores">Valores y Compromisos</a></li>   
+                <!-- Mantener mismo contenido del menú original -->
+                <li><a href="#Inicio" onclick="showSection('Inicio')">Inicio</a></li>
+                <li><a href="#misionVision" onclick="showSection('misionVision')">Misión y Visión</a></li>
+                <li><a href="#valores" onclick="showSection('valores')">Valores</a></li>
                 <li>
-                    <a href="#" aria-label="Productos de Ahorro">Productos de Ahorro y vida</a>
+                    <a href="#productos">Productos</a>
                     <ul class="submenu">
-                        <li><a href="#seguBeca" onclick="showSection('seguBeca')" aria-label="Ir a SeguBeca">SeguBeca</a></li>
-                        <li><a href="#vidaMujer" onclick="showSection('vidaMujer')" aria-label="Ir a Vida Mujer">Vida Mujer</a></li>
-                        <li><a href="#orvi" onclick="showSection('orvi')" aria-label="Ir a ORVI">ORVI</a></li>
-                        <li><a href="#imaginaSer" onclick="showSection('imaginaSer')" aria-label="Ir a Imagina Ser">Imagina Ser</a></li>
-		    </ul>
-                </li>      
-                <li><a href="#gastosMedicos" onclick="showSection('gastosMedicos')" aria-label="Ir a Gastos Médicos">Gastos Médicos Mayores</a></li>       
-                <li><a href="#reclutamiento" onclick="showSection('reclutamiento')" aria-label="Ir a Reclutamiento">Reclutamiento</a></li>
-				<p> </p>
-                <li><a href="#contacto" onclick="showSection('contacto')" aria-label="Ir a Contacto">Contacto</a></li> 
+                        <li><a href="#seguBeca" onclick="showSection('seguBeca')">SeguBeca</a></li>
+                        <li><a href="#vidaMujer" onclick="showSection('vidaMujer')">Vida Mujer</a></li>
+                        <li><a href="#orvi" onclick="showSection('orvi')">ORVI</a></li>
+                        <li><a href="#imaginaSer" onclick="showSection('imaginaSer')">Imagina Ser</a></li>
+                    </ul>
+                </li>
+                <li><a href="#gastosMedicos" onclick="showSection('gastosMedicos')">Gastos Médicos</a></li>
+                <li><a href="#reclutamiento" onclick="showSection('reclutamiento')">Reclutamiento</a></li>
+                <li><a href="#contacto" onclick="showSection('contacto')">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -622,42 +640,40 @@
 
 		</footer>
 </div>
-    <script>
-        // Simula la carga de contenido y oculta la pantalla de bienvenida
-        window.addEventListener('load', () => {
-    const progressBar = document.getElementById('progress-bar');
-    let progress = 0;
-    const increment = 10; // Progreso incrementado en 10
-    const interval = 300; // Intervalo en milisegundos para 3 segundos
-
-    function updateProgress() {
-        if (progress >= 100) { // Cuando el progreso alcanza el 100%
-            document.getElementById('welcome-screen').style.display = 'none'; // Oculta la pantalla de bienvenida
-            document.querySelector('.main-content').style.display = 'block'; // Muestra el contenido principal
-            return;
-        }
-
-        progress += increment; // Aumenta el progreso
-        progressBar.style.width = progress + '%'; // Actualiza el ancho de la barra de progreso
-        progressBar.textContent = progress + '% Cargando...'; // Actualiza el texto de la barra de progreso
-
-        setTimeout(updateProgress, interval); // Actualiza el progreso a intervalos definidos
-    }
-
-    updateProgress(); // Inicia el proceso de actualización
+   <script>
+        // Menú Hamburguesa
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('nav').classList.toggle('active');
         });
 
-        // Función para mostrar la sección seleccionada y ocultar las demás
-        function showSection(id) {
-            const sections = document.querySelectorAll('.info-section');
-            sections.forEach(section => {
+        // Carga progresiva
+        window.addEventListener('load', () => {
+            const progressBar = document.getElementById('progress-bar');
+            let progress = 0;
+            
+            const loadInterval = setInterval(() => {
+                progress += 10;
+                progressBar.style.width = `${progress}%`;
+                
+                if(progress >= 100) {
+                    clearInterval(loadInterval);
+                    document.getElementById('welcome-screen').style.display = 'none';
+                    document.querySelector('.main-content').style.display = 'block';
+                    showSection('Inicio');
+                }
+            }, 300);
+        });
+
+        // Mostrar secciones
+        function showSection(sectionId) {
+            document.querySelectorAll('.info-section').forEach(section => {
                 section.classList.remove('active');
-                if (section.id === id) {
+                if(section.id === sectionId) {
                     section.classList.add('active');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
             });
         }
     </script>
-	</div>
 </body>
 </html>
