@@ -14,6 +14,8 @@
             padding: 0;
             background-color: #f5f5f5;
             font-size: 1rem;
+            line-height: 1.6; /* Mejora la legibilidad */
+            color: #333;
         }
 
         header {
@@ -29,7 +31,7 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Sombra más pronunciada */
         }
 
         .logo img {
@@ -42,7 +44,7 @@
             padding: 0;
             margin: 0;
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem; /* Aumento del espacio entre elementos del menú */
         }
 
         nav ul li {
@@ -52,15 +54,16 @@
         nav ul li a {
             color: #fff;
             text-decoration: none;
-            padding: 0.5rem 1rem;
+            padding: 0.7rem 1.2rem; /* Aumento del padding para mejor clic */
             border-radius: 5px;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Transición en hover */
             display: block;
             white-space: nowrap;
         }
 
         nav ul li a:hover {
             background-color: #003366;
+            transform: translateY(-2px); /* Pequeño efecto al pasar el ratón */
         }
 
         .submenu {
@@ -70,9 +73,14 @@
             left: 0;
             background-color: #00183c;
             min-width: 200px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Sombra más pronunciada para el submenú */
             border-radius: 5px;
             z-index: 1001;
+            padding: 0.5rem 0; /* Espaciado interno del submenú */
+        }
+
+        .submenu li a {
+            padding: 0.8rem 1.5rem; /* Ajuste para los elementos del submenú */
         }
 
         nav ul li:hover .submenu {
@@ -80,7 +88,7 @@
         }
 
         .main-content {
-            margin-top: 7.5rem;
+            margin-top: 7.5rem; /* Ajuste para el header fijo */
             padding: 1.5rem;
         }
 
@@ -88,22 +96,42 @@
             background: #fff;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 1.5rem;
+            padding: 2rem; /* Aumento del padding interno */
             margin: 2rem auto;
             max-width: 1000px;
             display: none;
+            animation: fadeIn 0.8s ease-out; /* Animación de aparición */
         }
 
         .info-section.active {
             display: block;
         }
 
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .info-section h2, .info-section h3 {
+            color: #00183c;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-section p, .info-section li {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
         .video-container {
             position: relative;
             width: 100%;
             max-width: 800px;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 2rem; /* Más espacio debajo del video */
             padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            border-radius: 10px;
+            overflow: hidden; /* Asegura que el borde redondeado funcione para el video */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15); /* Sombra para los videos */
         }
 
         .video-container video,
@@ -114,7 +142,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 10px;
+            border-radius: 10px; /* Asegura que el video también tenga los bordes redondeados */
         }
 
         footer {
@@ -123,17 +151,41 @@
             padding: 1.5rem;
             text-align: center;
             margin-top: 3rem;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.2); /* Sombra superior */
         }
 
         .social-buttons {
             margin: 1.5rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
         }
 
         .social-buttons img {
-            width: 2.5rem;
-            height: 2.5rem;
-            margin: 0 0.5rem;
+            width: 2.8rem; /* Tamaño un poco más grande */
+            height: 2.8rem;
             transition: transform 0.3s ease;
+        }
+
+        .social-buttons img:hover {
+            transform: scale(1.1); /* Efecto al pasar el ratón */
+        }
+
+        button {
+            background-color: #003366;
+            color: #fff;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin: 0.5rem; /* Espaciado entre botones */
+        }
+
+        button:hover {
+            background-color: #004488;
+            transform: translateY(-2px);
         }
 
         /* Pantalla de carga */
@@ -148,6 +200,12 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
+            transition: opacity 0.5s ease; /* Transición para la desaparición */
+        }
+
+        #welcome-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
         }
 
         .progress-container {
@@ -156,6 +214,7 @@
             background-color: #fff;
             border-radius: 10px;
             overflow: hidden;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.2); /* Sombra interna para la barra */
         }
 
         #progress-bar {
@@ -171,7 +230,7 @@
             background: none;
             border: none;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.8rem; /* Ícono más grande */
             cursor: pointer;
             padding: 0.5rem;
         }
@@ -180,43 +239,84 @@
         .popup {
             display: none;
             position: fixed;
-            z-index: 1;
+            z-index: 9990; /* Z-index alto pero por debajo de la pantalla de carga */
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.8);
+            background-color: rgba(0,0,0,0.7); /* Oscurecer un poco más el fondo */
             text-align: center;
+            padding-top: 20px;
+        }
+
+        .popup .popup-content {
+            background-color: #fff;
+            color: #333;
+            padding: 2.5rem; /* Más padding */
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 5% auto;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3); /* Sombra más dramática */
+            animation: scaleIn 0.3s ease-out; /* Animación al abrir */
+            overflow-x: auto; /* Para tablas en popups */
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
 
         .popup img {
-            display: block;
-            width: 80%;
-            max-width: 600px;
+            max-width: 90%; /* Ajuste para imágenes dentro de popups */
             height: auto;
-            margin: 5% auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 8px; /* Bordes redondeados para imágenes en popups */
         }
 
         .close {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            color: #fff;
-            font-size: 40px;
+            top: 15px;
+            right: 25px;
+            color: #555; /* Color más oscuro para el botón de cierre */
+            font-size: 35px;
             font-weight: bold;
             cursor: pointer;
+            transition: color 0.2s ease;
         }
 
         .close:hover,
         .close:focus {
-            color: #bbb;
+            color: #000;
+        }
+
+        /* Estilos específicos para la tabla en el popup */
+        .popup-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        .popup-content th, .popup-content td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .popup-content th {
+            background-color: #f2f2f2;
+            color: #00183c;
+            font-weight: bold;
+            text-align: center;
         }
 
         /* Media Queries */
         @media (max-width: 768px) {
             header {
-                padding: 0.5rem;
+                padding: 0.8rem;
+                flex-wrap: nowrap; /* Evita que el logo y el toggle se envuelvan */
             }
 
             .menu-toggle {
@@ -226,11 +326,17 @@
             nav {
                 width: 100%;
                 display: none;
+                flex-direction: column;
+                background-color: #00183c; /* Fondo para el menú expandido */
+                position: absolute;
+                top: 5rem; /* Debajo del header */
+                left: 0;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                padding-bottom: 1rem;
             }
 
             nav.active {
-                display: block;
-                margin-top: 1rem;
+                display: flex; /* Cambia a flex para columnas */
             }
 
             nav ul {
@@ -241,6 +347,11 @@
             nav ul li {
                 width: 100%;
                 text-align: center;
+                border-bottom: 1px solid rgba(255,255,255,0.1); /* Separador para elementos del menú */
+            }
+
+            nav ul li:last-child {
+                border-bottom: none;
             }
 
             nav ul li a {
@@ -249,10 +360,11 @@
             }
 
             .submenu {
-                position: static;
+                position: static; /* Submenú se expande dentro del menú principal */
                 width: 100%;
                 box-shadow: none;
                 border-radius: 0;
+                background-color: rgba(0,24,60,0.8); /* Ligeramente más oscuro para el submenú */
             }
 
             .logo img {
@@ -265,24 +377,49 @@
             }
 
             .info-section {
-                margin: 1rem auto;
-                padding: 1rem;
+                margin: 1.5rem auto;
+                padding: 1.5rem;
             }
 
             button {
-                width: 100%;
-                margin: 0.5rem 0;
-                padding: 1rem;
+                width: calc(100% - 1rem); /* Ocupa el ancho completo con un margen */
+                margin: 0.5rem auto;
+                display: block; /* Para centrar los botones */
+            }
+
+            .popup .popup-content {
+                margin: 10% auto;
+                padding: 1.5rem;
+            }
+
+            .popup-content th, .popup-content td {
+                padding: 8px; /* Menos padding para tabla en móviles */
+                font-size: 0.9em;
             }
         }
 
         @media (max-width: 480px) {
             html {
-                font-size: 14px;
+                font-size: 15px; /* Ajuste base para móviles muy pequeños */
             }
 
             .main-content {
-                margin-top: 5rem;
+                margin-top: 5.5rem;
+                padding: 0.8rem;
+            }
+
+            .info-section {
+                padding: 1rem;
+            }
+
+            .social-buttons img {
+                width: 2.2rem;
+                height: 2.2rem;
+            }
+
+            .popup .popup-content {
+                margin: 5% auto; /* Más arriba en pantallas muy pequeñas */
+                padding: 1rem;
             }
         }
     </style>
@@ -305,7 +442,7 @@
                 <img src="path/to/logo-loyds-navarro.png" alt="Logo">
             </a>
         </div>
-        <button class="menu-toggle">☰</button>
+        <button class="menu-toggle" aria-label="Abrir menú">☰</button>
         <nav>
             <ul>
                 <li><a href="#Inicio" onclick="showSection('Inicio')">Inicio</a></li>
@@ -328,29 +465,32 @@
     </header>
     <div class="main-content">
         <section id="Inicio" class="info-section active">
+            <h2>Bienvenido a Loyd's y Navarro</h2>
+            <p>Descubre soluciones de protección y ahorro para tu futuro y el de tu familia.</p>
             <div class="video-container">
-                <video controls> <source src="path/to/im2.mp4" type="video/mp4">
-                    Tu navegador no soporta la etiqueta de video.
+                <video controls>
+                    <source src="path/to/im2.mp4" type="video/mp4">
+                    Tu navegador no soporta el formato de video.
                 </video>
             </div>
         </section>
 
         <section id="seguBeca" class="info-section" style="background-image: url('path/to/nino.jpg'); background-size: cover; background-position: center; color: #333;">
-            <h2 style="text-align: center; color: #00183c;">SeguBeca</h2>
-            <div style="position: relative; padding-top: 30%; margin: 0 auto; max-width: 500px;">
-                <iframe src="https://www.youtube.com/embed/VIDEO_ID_SEGU_BECA?controls=1"
-                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
-                        frameborder="0" allowfullscreen></iframe> </div>
+            <h2 style="text-align: center;">SeguBeca</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_SEGU_BECA?controls=1&modestbranding=1&rel=0"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
             <p>Anticípate al futuro, ¡asegura su educación!</p>
             <p>SeguBeca te ayuda a concretar los sueños de tus hijos y/o dependientes, garantizando su educación y el acceso a los recursos necesarios para alcanzarlos.</p>
-            <h3 style="text-align: center; color: #00183c;">¿Por qué elegir SeguBeca?</h3>
+            <h3 style="text-align: center;">¿Por qué elegir SeguBeca?</h3>
             <ul>
                 <li>Garantiza la educación de tus hijos para su éxito profesional.</li>
                 <li>Opción mancomunada, única en el mercado, con protección independiente para ambos contratantes.</li>
                 <li>Protege el valor de tu dinero contra la inflación.</li>
                 <li>Ahorro confiable y seguro.</li>
             </ul>
-            <h3 style="text-align: center; color: #00183c;">¿Cómo funciona SeguBeca?</h3>
+            <h3 style="text-align: center;">¿Cómo funciona SeguBeca?</h3>
             <ul>
                 <li>Define el monto de ahorro según el costo aproximado de la universidad y gastos adicionales.</li>
                 <li>Selecciona coberturas adicionales para protección en caso de fallecimiento o incapacidad.</li>
@@ -360,13 +500,13 @@
         </section>
 
         <section id="vidaMujer" class="info-section" style="background-image: url('path/to/vida.jpg'); background-size: cover; background-position: center; color: #333;">
-            <h2 style="text-align: center; color: #00183c;">Vida Mujer</h2>
-            <div style="position: relative; padding-top: 30%; margin: 0 auto; max-width: 500px;">
-                <iframe src="https://www.youtube.com/embed/VIDEO_ID_VIDA_MUJER?controls=1"
-                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
-                        frameborder="0" allowfullscreen></iframe> </div>
+            <h2 style="text-align: center;">Vida Mujer</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_VIDA_MUJER?controls=1&modestbranding=1&rel=0"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
             <p>Vida Mujer es un seguro diseñado especialmente para mujeres, brindando tranquilidad y respaldo financiero en caso de fallecimiento, invalidez o enfermedades graves.</p>
-            <h3 style="text-align: center; color: #00183c;">Características:</h3>
+            <h3 style="text-align: center;">Características:</h3>
             <ul>
                 <li>Suma asegurada en caso de fallecimiento.</li>
                 <li>Apoyo económico por diagnóstico de cáncer de mama o cérvix.</li>
@@ -377,10 +517,10 @@
 
         <section id="orvi" class="info-section" style="background-image: url('path/to/orvi.jpg'); background-size: cover; background-position: center; color: #333;">
             <h2>Orvi</h2>
-            <div style="position: relative; padding-top: 30%; margin: 0 auto; max-width: 500px;">
-                <iframe src="https://www.youtube.com/embed/VIDEO_ID_ORVI?controls=1"
-                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
-                        frameborder="0" allowfullscreen></iframe> </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_ORVI?controls=1&modestbranding=1&rel=0"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
             <p>El Seguro que proporciona seguridad, protección, así como un ahorro para ti y tu familia</p>
             <p>Orvi es un seguro de vida que te brinda la seguridad de que tus seres queridos estarán protegidos financieramente en caso de fallecimiento o invalidez.</p>
             <h3>Características:</h3>
@@ -391,247 +531,261 @@
                 <li>Asistencia personalizada para el titular y beneficiarios.</li>
             </ul>
         </section>
-    </div>
 
-    <section id="imaginaSer" class="info-section" style="background-image: url('path/to/imag.jpg'); background-size: cover; background-position: center; color: #333;">
-        <h2>Imagina Ser</h2>
-        <button onclick="window.open('https://loydsandnavarro.github.io/web/Gastosmedico.html', '_blank')">Simula GMM</button>
-        <button onclick="window.open('https://loydsandnavarro.github.io/web/Retiro1.html', '_blank')">Simula plan de retiro</button>
-    </section>
+        <section id="imaginaSer" class="info-section" style="background-image: url('path/to/imag.jpg'); background-size: cover; background-position: center; color: #333;">
+            <h2>Imagina Ser</h2>
+            <button onclick="window.open('https://loydsandnavarro.github.io/web/Gastosmedico.html', '_blank')">Simula GMM</button>
+            <button onclick="window.open('https://loydsandnavarro.github.io/web/Retiro1.html', '_blank')">Simula plan de retiro</button>
+        </section>
 
-    <section id="gastosMedicos" class="info-section" style="background-image: url('path/to/background-image.jpg'); background-size: cover; background-position: center; color: #333; padding: 20px;">
-        <h2></h2>
-        <h2 style="text-align: center; color: #00183c;">Seguro de Gastos Médicos Mayores</h2>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/VIDEO_ID_GASTOS_MEDICOS?controls=1"
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
-                    frameborder="0" allowfullscreen></iframe> </div>
-        <h3 style="text-align: center; color: #00183c;">¿Por qué adquirir un Seguro de Gastos Médicos Mayores?</h3>
-        <ul style="padding-justify: 20px; margin: 0; color: #333; text-align: justify;">
-            <p><strong>1.-Protección Personalizada y Completa: </strong>Un seguro individual ofrece una cobertura ajustada a tus necesidades específicas, a diferencia de los seguros colectivos que pueden ser genéricos.</p>
-            <p><strong>2.-Estabilidad en Cambios: </strong>Las primas suelen aumentar y las condiciones cambian anualmente. Un seguro personal asegura una cobertura constante y adaptada a tus necesidades.</p>
-            <p><strong>3.-Reducción de Costos Médicos Altos: </strong>Te ayuda a mitigar altos costos médicos en el sector privado, cubriendo una parte significativa y reduciendo el impacto económico familiar.</p>
-            <p><strong>4.-Cobertura Independiente del Empleo: </strong>Ofrece protección continua sin importar tu situación laboral, a diferencia de los seguros proporcionados por empresas que solo cubren mientras estés contratado.</p>
-            <p><strong>5.-Compensación Efectiva y Rápida: </strong>Los siniestros se indemnizan mediante desembolsos directos, facilitando la cobertura de gastos médicos sin demoras y simplificando el proceso.</p>
-            <p></p>
-            <p><strong>Opta por la tranquilidad con un Seguro de Gastos Médicos Mayores de Seguros Monterrey New York Life y asegura tu bienestar hoy mismo.</strong></p>
-        </ul>
+        <section id="gastosMedicos" class="info-section" style="background-image: url('path/to/background-image.jpg'); background-size: cover; background-position: center; color: #333; padding: 20px;">
+            <h2 style="text-align: center;">Seguro de Gastos Médicos Mayores</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_GASTOS_MEDICOS?controls=1&modestbranding=1&rel=0"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <h3 style="text-align: center;">¿Por qué adquirir un Seguro de Gastos Médicos Mayores?</h3>
+            <ul>
+                <li><p><strong>1.- Protección Personalizada y Completa: </strong>Un seguro individual ofrece una cobertura ajustada a tus necesidades específicas, a diferencia de los seguros colectivos que pueden ser genéricos.</p></li>
+                <li><p><strong>2.- Estabilidad en Cambios: </strong>Las primas suelen aumentar y las condiciones cambian anualmente. Un seguro personal asegura una cobertura constante y adaptada a tus necesidades.</p></li>
+                <li><p><strong>3.- Reducción de Costos Médicos Altos: </strong>Te ayuda a mitigar altos costos médicos en el sector privado, cubriendo una parte significativa y reduciendo el impacto económico familiar.</p></li>
+                <li><p><strong>4.- Cobertura Independiente del Empleo: </strong>Ofrece protección continua sin importar tu situación laboral, a diferencia de los seguros proporcionados por empresas que solo cubren mientras estés contratado.</p></li>
+                <li><p><strong>5.- Compensación Efectiva y Rápida: </strong>Los siniestros se indemnizan mediante desembolsos directos, facilitando la cobertura de gastos médicos sin demoras y simplificando el proceso.</p></li>
+            </ul>
+            <p style="text-align: center;"><strong>Opta por la tranquilidad con un Seguro de Gastos Médicos Mayores de Seguros Monterrey New York Life y asegura tu bienestar hoy mismo.</strong></p>
 
-        <h3 style="text-align: center; color: #00183c;">¿Por que contratar un seguro Gastos Médicos Mayores Seguros Monterrey New York Life?</h3>
-        <ul style="padding-justify: 20px; margin: 0; color: #333; text-align: justify;">
-            <p><strong>1.-Cobertura Amplia: </strong>Protege contra una amplia gama de gastos médicos, incluyendo hospitalización, cirugía, consultas médicas, y tratamientos especializados.</p>
-            <p><strong>2.-Beneficios por Enfermedades Críticas: </strong>Ofrece cobertura para enfermedades graves, garantizando apoyo financiero adicional en casos de diagnóstico de enfermedades críticas como cáncer, infarto o accidentes cerebrovasculares.</p>
-            <p><strong>3.-Cobertura por Accidentes y Enfermedades: </strong>Cubre gastos relacionados con accidentes y enfermedades, asegurando que estés protegido en diversas situaciones que puedan surgir.</p>
-            <p><strong>4.-Servicios de Atención Personalizada: </strong>Brinda asesoría médica y servicios de atención al cliente especializados para ayudarte a gestionar tus necesidades médicas y resolver cualquier duda sobre tu cobertura.</p>
-            <p><strong>5.-Protección Financiera Contra Costos Elevados: </strong>Minimiza el impacto de los altos costos médicos, cubriendo una parte significativa de los gastos y protegiendo tu economía familiar.</p>
-            <p><strong>6.-Renovación Garantizada: </strong>Ofrece la posibilidad de renovar tu póliza cada año sin necesidad de reavaluación médica, garantizando continuidad en tu protección a largo plazo.</p>
-            <p><strong>7.-Flexibilidad en la Cobertura: </strong>Permite adaptar la cobertura a tus necesidades cambiantes a lo largo del tiempo, ajustando tu póliza según tu situación personal y familiar.</p>
-            <p><strong>8.-Asistencia en Emergencias: </strong>Incluye servicios de asistencia en emergencias, tanto en situaciones de salud críticas como en necesidades médicas urgentes.</p>
-            <p></p>
-            <p><strong>Estas características aseguran una protección completa y adaptada a tus necesidades, dándote tranquilidad y seguridad en la gestión de tu salud.</strong></p>
-        </ul>
+            <h3 style="text-align: center;">¿Por que contratar un seguro Gastos Médicos Mayores Seguros Monterrey New York Life?</h3>
+            <ul>
+                <li><p><strong>1.- Cobertura Amplia: </strong>Protege contra una amplia gama de gastos médicos, incluyendo hospitalización, cirugía, consultas médicas, y tratamientos especializados.</p></li>
+                <li><p><strong>2.- Beneficios por Enfermedades Críticas: </strong>Ofrece cobertura para enfermedades graves, garantizando apoyo financiero adicional en casos de diagnóstico de enfermedades críticas como cáncer, infarto o accidentes cerebrovasculares.</p></li>
+                <li><p><strong>3.- Cobertura por Accidentes y Enfermedades: </strong>Cubre gastos relacionados con accidentes y enfermedades, asegurando que estés protegido en diversas situaciones que puedan surgir.</p></li>
+                <li><p><strong>4.- Servicios de Atención Personalizada: </strong>Brinda asesoría médica y servicios de atención al cliente especializados para ayudarte a gestionar tus necesidades médicas y resolver cualquier duda sobre tu cobertura.</p></li>
+                <li><p><strong>5.- Protección Financiera Contra Costos Elevados: </strong>Minimiza el impacto de los altos costos médicos, cubriendo una parte significativa de los gastos y protegiendo tu economía familiar.</p></li>
+                <li><p><strong>6.- Renovación Garantizada: </strong>Ofrece la posibilidad de renovar tu póliza cada año sin necesidad de reavaluación médica, garantizando continuidad en tu protección a largo plazo.</p></li>
+                <li><p><strong>7.- Flexibilidad en la Cobertura: </strong>Permite adaptar la cobertura a tus necesidades cambiantes a lo largo del tiempo, ajustando tu póliza según tu situación personal y familiar.</p></li>
+                <li><p><strong>8.- Asistencia en Emergencias: </strong>Incluye servicios de asistencia en emergencias, tanto en situaciones de salud críticas como en necesidades médicas urgentes.</p></li>
+            </ul>
+            <p style="text-align: center;"><strong>Estas características aseguran una protección completa y adaptada a tus necesidades, dándote tranquilidad y seguridad en la gestión de tu salud.</strong></p>
 
-        <div style="text-align: center; margin-top: 20px;">
-            <button onclick="openPopup('popup1')">Alfa Medical</button>
-            <button onclick="openPopup('popup2')">Características de Planes</button>
-            <button onclick="openPopup('popup3')">Niveles hospitalarios</button>
-            <button onclick="openPopup('popup4')">Alfa Medical Internacional</button>
-            <div id="popup1" class="popup">
-                <span class="close" onclick="closePopup('popup1')">×</span>
-                <div style="background-color: #fff; color: #333; padding: 30px; border-radius: 10px; max-width: 800px; margin: 5% auto;">
-                    <h2>---------------------------------------------------------------------</h2>
-                    <h3 style="text-align: center; color: #00183c;">Alfa Medical</h3>
-                    <ul style="padding-justify: 20px; margin: 0; color: #333; text-align: justify;">
-                        <p><strong>¿Qué es?</strong> Alfa Medical, es la línea de seguros de Gastos Médicos Mayores de Seguros Monterrey New York Life que se especializa en proteger la salud e integridad de los asegurados ocasionados por un Siniestro Amparado por la póliza, a través de diferentes planes para cada necesidad y estilo de vida.</p>
-                        <p>* Cuenta con las coberturas más completas y acceso abierto a los mejores hospitales a nivel nacional.</p>
-                        <p>* Es el perfecto equilibrio entre balance de costo y gama de hospitales.</p>
-                        <p>* Atención médica competitiva de hospitales y de médicos, a un precio accesible.</p>
-                    </ul>
+            <div style="text-align: center; margin-top: 20px;">
+                <button onclick="openPopup('popup1')">Alfa Medical</button>
+                <button onclick="openPopup('popup2')">Características de Planes</button>
+                <button onclick="openPopup('popup3')">Niveles hospitalarios</button>
+                <button onclick="openPopup('popup4')">Alfa Medical Internacional</button>
+
+                <div id="popup1" class="popup">
+                    <div class="popup-content">
+                        <span class="close" onclick="closePopup('popup1')">×</span>
+                        <h3 style="text-align: center;">Alfa Medical</h3>
+                        <ul>
+                            <li><p><strong>¿Qué es?</strong> Alfa Medical, es la línea de seguros de Gastos Médicos Mayores de Seguros Monterrey New York Life que se especializa en proteger la salud e integridad de los asegurados ocasionados por un Siniestro Amparado por la póliza, a través de diferentes planes para cada necesidad y estilo de vida.</p></li>
+                            <li><p>* Cuenta con las coberturas más completas y acceso abierto a los mejores hospitales a nivel nacional.</p></li>
+                            <li><p>* Es el perfecto equilibrio entre balance de costo y gama de hospitales.</p></li>
+                            <li><p>* Atención médica competitiva de hospitales y de médicos, a un precio accesible.</p></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div id="popup2" class="popup">
-                <span class="close" onclick="closePopup('popup2')">×</span>
-                <div style="background-color: #fff; color: #333; padding: 20px; border-radius: 8px; max-width: 600px; margin: 5% auto; overflow-x: auto;">
-                    <h2>---------------------------------------------------------------------</h2>
-                    <h3 style="text-align: center; color: #00183c;">Tipos de Planes</h3>
-                    <table style="width: 100%; border-collapse: collapse;">
-                        <thead>
-                            <tr>
-                                <th style="border: 3px solid #003366; padding: 8px; text-align: center;">Plan</th>
-                                <th style="border: 3px solid #003366; padding: 8px; text-align: center;">¿Qué ofrece?</th>
-                                <th style="border: 3px solid #003366; padding: 8px; text-align: center;">Características</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="border: 2px solid #ddd; padding: 7px;">Pleno</td>
-                                <td style="border: 2px solid #ddd; padding: 7px;">Acceso a los mejores hospitales a nivel Nacional.</td>
-                                <td style="border: 2px solid #ddd; padding: 7px;">* El Asegurado puede atenderse en los mejores hospitales de su zona y a nivel nacional.<p>* Es el plan con los límites más altos en cuanto a coberturas</p></td>
-                            </tr>
-                            <tr>
-                                <td style="border: 2px solid #ddd; padding: 7px;">Íntegro</td>
-                                <td style="border: 2px solid #ddd; padding: 7px;">Acceso a una amplia gama de hospitales con un precio competitivo.</td>
-                                <td style="border: 2px solid #ddd; padding: 7px;">* El Asegurado podrá acudir a hospitales de buen nivel, los un precio competitivo. cuales brindan atención de calidad.</td>
-                            </tr>
-                            <tr>
-                                <td style="border: 2px solid #ddd; padding: 7px;">Práctico</td>
-                                <td style="border: 2px solid #ddd; padding: 7px;">Un equilibrio entre su costo y la gama de hospitales a los que se tiene acceso.</td>
-                                <td style="border: 2px solid #ddd; padding: 7px;">* Es el plan más accesible de la línea, con un balance en el nivel de calidad y servicio.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div id="popup2" class="popup">
+                    <div class="popup-content">
+                        <span class="close" onclick="closePopup('popup2')">×</span>
+                        <h3 style="text-align: center;">Tipos de Planes</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Plan</th>
+                                    <th>¿Qué ofrece?</th>
+                                    <th>Características</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Pleno</td>
+                                    <td>Acceso a los mejores hospitales a nivel Nacional.</td>
+                                    <td>* El Asegurado puede atenderse en los mejores hospitales de su zona y a nivel nacional.<p>* Es el plan con los límites más altos en cuanto a coberturas</p></td>
+                                </tr>
+                                <tr>
+                                    <td>Íntegro</td>
+                                    <td>Acceso a una amplia gama de hospitales con un precio competitivo.</td>
+                                    <td>* El Asegurado podrá acudir a hospitales de buen nivel, los un precio competitivo. cuales brindan atención de calidad.</td>
+                                </tr>
+                                <tr>
+                                    <td>Práctico</td>
+                                    <td>Un equilibrio entre su costo y la gama de hospitales a los que se tiene acceso.</td>
+                                    <td>* Es el plan más accesible de la línea, con un balance en el nivel de calidad y servicio.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
-            <div id="popup3" class="popup">
-                <span class="close" onclick="closePopup('popup3')">×</span>
-                <img src="path/to/AlgamedicalN.jpg" alt="Niveles hospitalarios">
-            </div>
-            <div id="popup4" class="popup">
-                <span class="close" onclick="closePopup('popup4')">×</span>
-                <div style="background-color: #fff; color: #333; padding: 30px; border-radius: 10px; max-width: 800px; margin: 5% auto;">
-                    <h2>---------------------------------------------------------------------</h2>
-                    <h3 style="text-align: center; color: #00183c;">Alfa Medical Internacional</h3>
-                    <ul style="padding-justify: 20px; margin: 0; color: #333; text-align: justify;">
-                        <p><strong>¿Qué es?</strong> Alfa Medical Internacional, es el plan más exclusivo de Seguros Monterrey New York Life que protege la salud e integridad de los asegurados ocasionados por un accidente, enfermedad o evento de maternidad amparados por la póliza de forma internacional. Es un seguro de Gastos Médicos Mayores Individual con grandes beneficios, ya que el cliente tendrá la mejor atención médica en todo el mundo. Cuenta con el apoyo y coordinación en los trámites que requiera efectuar durante su estancia en el extranjero como:</p>
-                        <p>• Citas con médicos de la red en convenio..</p>
-                        <p>• Coordinación de traslados incluyendo: vuelos, hoteles, ambulancia aérea y terrestre.</p>
-                        <p>• Alojamiento para el asegurado y un acompañante que designe en caso de urgencia.</p>
-                        <p>• En estadía en el extranjero cuenta con el respaldo de Seguros Monterrey New York Life y Global Excel: empresa lider a nivel mundial dedicada a la administración de asistencia médica en el extranjero.</p>
-                    </ul>
+                <div id="popup3" class="popup">
+                    <div class="popup-content">
+                        <span class="close" onclick="closePopup('popup3')">×</span>
+                        <img src="path/to/AlgamedicalN.jpg" alt="Niveles hospitalarios">
+                    </div>
+                </div>
+                <div id="popup4" class="popup">
+                    <div class="popup-content">
+                        <span class="close" onclick="closePopup('popup4')">×</span>
+                        <h3 style="text-align: center;">Alfa Medical Internacional</h3>
+                        <ul>
+                            <li><p><strong>¿Qué es?</strong> Alfa Medical Internacional, es el plan más exclusivo de Seguros Monterrey New York Life que protege la salud e integridad de los asegurados ocasionados por un accidente, enfermedad o evento de maternidad amparados por la póliza de forma internacional. Es un seguro de Gastos Médicos Mayores Individual con grandes beneficios, ya que el cliente tendrá la mejor atención médica en todo el mundo. Cuenta con el apoyo y coordinación en los trámites que requiera efectuar durante su estancia en el extranjero como:</p></li>
+                            <li><p>• Citas con médicos de la red en convenio..</p></li>
+                            <li><p>• Coordinación de traslados incluyendo: vuelos, hoteles, ambulancia aérea y terrestre.</p></li>
+                            <li><p>• Alojamiento para el asegurado y un acompañante que designe en caso de urgencia.</p></li>
+                            <li><p>• En estadía en el extranjero cuenta con el respaldo de Seguros Monterrey New York Life y Global Excel: empresa lider a nivel mundial dedicada a la administración de asistencia médica en el extranjero.</p></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <p>
-                <h3 style="text-align: center; color: #00183c;">¿Como Participar en un Siniestro como Asegurado?</h3>
+                <h3 style="text-align: center;">¿Cómo Participar en un Siniestro como Asegurado?</h3>
                 <div style="text-align: center; margin-top: 20px;">
                     <button onclick="openPopup('popup5')">Siniestros como asegurado</button>
                 </div>
                 <div id="popup5" class="popup">
-                    <span class="close" onclick="closePopup('popup5')">×</span>
-                    <img src="path/to/AlgamedicaA.jpg" alt="Siniestros como asegurado">
+                    <div class="popup-content">
+                        <span class="close" onclick="closePopup('popup5')">×</span>
+                        <img src="path/to/AlgamedicaA.jpg" alt="Siniestros como asegurado">
+                    </div>
                 </div>
             </p>
-        </div>
-    </section>
-
-    <section id="misionVision" class="info-section">
-        <h2>Misión y Visión</h2>
-        <p><strong>Misión:</strong>Brindar soluciones integrales en seguros y servicios financieros, ofreciendo protección y tranquilidad a nuestros clientes.</p>
-        <p><strong>Visión:</strong>Ser lideres como consultora para la protección en el ramo de vida, gastos médicos mayores, y asesoramiento en productos financieros destacándonos por nuestro excepcional.</p>
-    </section>
-
-    <section id="contacto" class="info-section">
-        <h2>Contacto</h2>
-        <p>Para más información, contáctanos:</p>
-        <div class="social-buttons">
-            <a href="https://www.facebook.com/loydsandnavarro/" target="_blank" aria-label="Facebook">
-                <img src="path/to/facebook-icon.png" alt="Facebook">
-            </a>
-            <a href="https://www.youtube.com/channel/YOUR_YOUTUBE_CHANNEL_ID" target="_blank" aria-label="YouTube"> <img src="path/to/youtube-icon.png" alt="YouTube">
-            </a>
-            <a href="https://wa.me/527225886862?text=Me%20gustaría%20obtener%20más%20información" target="_blank" aria-label="WhatsApp">
-                <img src="path/to/whatsapp-icon.png" alt="WhatsApp">
-            </a>
-        </div>
-        <h4>Teléfonos: 55 4468 3547 / 722 588 6862. Email: reservamatematica@gmail.com</h4>
-        <p>Si deseas una cita y que un asesor finaciero te presente un producto de tu interes presiona el siguiente botón</p>
-        <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-        <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-        <script>
-            (function() {
-                var target = document.currentScript;
-                window.addEventListener('load', function() {
-                    calendar.schedulingButton.load({
-                        url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3LYB_3Dz3pgloorODn9XUZ3WHCmP_pgc3ithe4tHf-6YaSwVf9AzTKfRko1L33AKq5OSHF2rSf?gv=true',
-                        color: '#039BE5',
-                        label: 'Reservar una cita',
-                        target,
-                    });
-                });
-            })();
-        </script>
         </section>
 
-    <section id="valores" class="info-section">
-        <center><h2>Valores y Compromisos</h2> <p></p></center>
-        <p><h4>Relaciones cercanas con el cliente:</h4>"Nuestra consultoría está enfocada en establecer relaciones cercanas con el cliente."</p>
-        <p><h4>Protección familiar:</h4>"Proporcionar servicios diseñados para proteger tanto a nuestros clientes como a sus familias."</p>
-        <p><h4>Compromiso con la satisfacción del cliente:</h4>Loyd’s & Navarro es una consultora con amplia experiencia en el mercado de seguros, comprometida con la satisfacción de nuestros clientes.</p>
-    </section>
-
-    <section id="reclutamiento" class="info-section">
-        <h3>Únete a nuestro Equipo: Tu Futuro Comienza Aquí</h3> <h4><p>Loyd's & Navarro preservando tu futuro financiero</p></h4>
-        <p>¿Buscas una carrera donde puedas ayudar a las familias a asegurar su futuro financiero? Únete a nuestro equipo en seguros de vida y ahorro, donde cada día cuenta para hacer una diferencia significativa.</p>
-        <h4> ¿Qué ofrecemos? </h4>
-        <p><li>Impacto positivo: Ayuda a proteger el futuro de las personas y sus seres queridos.</li></p>
-        <p><li>Crecimiento profesional: Oportunidades de aprendizaje continuo y desarrollo personal.</li></p>
-        <p><li>Ambiente colaborativo: Trabaja en un equipo diverso y dinámico que valora tu contribución.</li></p>
-        <p>/</p>
-        <h4>¡Envía tu CV hoy!</h4>
-        <p>Si tienes pasión por el servicio al cliente y quieres crecer en un sector que importa, ¡esperamos conocerte! Envía tu CV a [reservamatematica@gmail.com] y únete a nosotros en esta emocionante trayectoria en seguros de vida y ahorro.</p>
-        <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-        <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-        <script>
-            (function() {
-                var target = document.currentScript;
-                window.addEventListener('load', function() {
-                    calendar.schedulingButton.load({
-                        url: 'https://docs.google.com/forms/d/e/1FAIpQLSfQmtUIKi_CAbICRgC4jg07Dsrwgtz2On7ZOKtPoVGXjjgi2A/viewform?embedded=true',
-                        color: '#039BE5',
-                        label: 'Unete a nuestro equipo',
-                        target,
-                    });
-                });
-            })();
-        </script>
+        <section id="misionVision" class="info-section">
+            <center><h2>Misión y Visión</h2></center>
+            <p><strong>Misión:</strong> Brindar soluciones integrales en seguros y servicios financieros, ofreciendo protección y tranquilidad a nuestros clientes.</p>
+            <p><strong>Visión:</strong> Ser líderes como consultora para la protección en el ramo de vida, gastos médicos mayores, y asesoramiento en productos financieros destacándonos por nuestro excepcional servicio.</p>
         </section>
 
-    <footer>
-        <div class="social-buttons">
-            <a href="https://www.facebook.com/loydsandnavarro/" target="_blank" aria-label="Facebook">
-                <img src="path/to/facebook-icon.png" alt="Facebook">
-            </a>
-            <a href="https://www.youtube.com/channel/YOUR_YOUTUBE_CHANNEL_ID" target="_blank" aria-label="YouTube"> <img src="path/to/youtube-icon.png" alt="YouTube">
-            </a>
-            <a href="https://wa.me/527225886862?text=Me%20gustaría%20obtener%20más%20información" target="_blank" aria-label="WhatsApp">
-                <img src="path/to/whatsapp-icon.png" alt="WhatsApp">
-            </a>
-        </div>
-        <h4>Teléfonos: 55 4468 3547 / 722 588 6862. Email: reservamatematica@gmail.com</h4>
-    </footer>
+        <section id="contacto" class="info-section">
+            <h2>Contacto</h2>
+            <p>Para más información, contáctanos:</p>
+            <div class="social-buttons">
+                <a href="https://www.facebook.com/loydsandnavarro/" target="_blank" aria-label="Facebook">
+                    <img src="path/to/facebook-icon.png" alt="Facebook">
+                </a>
+                <a href="https://www.youtube.com/channel/TU_CANAL_DE_YOUTUBE" target="_blank" aria-label="YouTube">
+                    <img src="path/to/youtube-icon.png" alt="YouTube">
+                </a>
+                <a href="https://wa.me/527225886862?text=Me%20gustaría%20obtener%20más%20información" target="_blank" aria-label="WhatsApp">
+                    <img src="path/to/whatsapp-icon.png" alt="WhatsApp">
+                </a>
+            </div>
+            <h4>Teléfonos: 55 4468 3547 / 722 588 6862.<br> Email: reservamatematica@gmail.com</h4>
+            <p>Si deseas una cita y que un asesor financiero te presente un producto de tu interés, presiona el siguiente botón:</p>
+            <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+            <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+            <script>
+                (function() {
+                    var target = document.currentScript;
+                    window.addEventListener('load', function() {
+                        calendar.schedulingButton.load({
+                            url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3LYB_3Dz3pgloorODn9XUZ3WHCmP_pgc3ithe4tHf-6YaSwVf9AzTKfRko1L33AKq5OSHF2rSf?gv=true',
+                            color: '#039BE5',
+                            label: 'Reservar una cita',
+                            target,
+                        });
+                    });
+                })();
+            </script>
+            </section>
 
+        <section id="valores" class="info-section">
+            <center><h2>Valores y Compromisos</h2></center>
+            <p><h4>Relaciones cercanas con el cliente:</h4>"Nuestra consultoría está enfocada en establecer relaciones cercanas con el cliente."</p>
+            <p><h4>Protección familiar:</h4>"Proporcionar servicios diseñados para proteger tanto a nuestros clientes como a sus familias."</p>
+            <p><h4>Compromiso con la satisfacción del cliente:</h4>Loyd’s & Navarro es una consultora con amplia experiencia en el mercado de seguros, comprometida con la satisfacción de nuestros clientes.</p>
+        </section>
+
+        <section id="reclutamiento" class="info-section">
+            <h3>Únete a nuestro Equipo: Tu Futuro Comienza Aquí</h3> <h4><p>Loyd's & Navarro preservando tu futuro financiero</p></h4>
+            <p>¿Buscas una carrera donde puedas ayudar a las familias a asegurar su futuro financiero? Únete a nuestro equipo en seguros de vida y ahorro, donde cada día cuenta para hacer una diferencia significativa.</p>
+            <h4>¿Qué ofrecemos?</h4>
+            <ul>
+                <li>Impacto positivo: Ayuda a proteger el futuro de las personas y sus seres queridos.</li>
+                <li>Crecimiento profesional: Oportunidades de aprendizaje continuo y desarrollo personal.</li>
+                <li>Ambiente colaborativo: Trabaja en un equipo diverso y dinámico que valora tu contribución.</li>
+            </ul>
+            <p>¡Envía tu CV hoy!</p>
+            <p>Si tienes pasión por el servicio al cliente y quieres crecer en un sector que importa, ¡esperamos conocerte! Envía tu CV a reservamatematica@gmail.com y únete a nosotros en esta emocionante trayectoria en seguros de vida y ahorro.</p>
+            <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+            <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+            <script>
+                (function() {
+                    var target = document.currentScript;
+                    window.addEventListener('load', function() {
+                        calendar.schedulingButton.load({
+                            url: 'https://docs.google.com/forms/d/e/1FAIpQLSfQmtUIKi_CAbICRgC4jg07Dsrwgtz2On7ZOKtPoVGXjjgi2A/viewform?embedded=true',
+                            color: '#039BE5',
+                            label: 'Únete a nuestro equipo',
+                            target,
+                        });
+                    });
+                })();
+            </script>
+            </section>
+
+        <footer>
+            <div class="social-buttons">
+                <a href="https://www.facebook.com/loydsandnavarro/" target="_blank" aria-label="Facebook">
+                    <img src="path/to/facebook-icon.png" alt="Facebook">
+                </a>
+                <a href="https://www.youtube.com/channel/TU_CANAL_DE_YOUTUBE" target="_blank" aria-label="YouTube">
+                    <img src="path/to/youtube-icon.png" alt="YouTube">
+                </a>
+                <a href="https://wa.me/527225886862?text=Me%20gustaría%20obtener%20más%20información" target="_blank" aria-label="WhatsApp">
+                    <img src="path/to/whatsapp-icon.png" alt="WhatsApp">
+                </a>
+            </div>
+            <h4>Teléfonos: 55 4468 3547 / 722 588 6862.<br> Email: reservamatematica@gmail.com</h4>
+        </footer>
+    </div>
     <script>
         // Menú Hamburguesa
         document.querySelector('.menu-toggle').addEventListener('click', () => {
             document.querySelector('nav').classList.toggle('active');
         });
 
-        // Carga progresiva
+        // Carga progresiva y ocultar pantalla de bienvenida
         window.addEventListener('load', () => {
             const progressBar = document.getElementById('progress-bar');
+            const welcomeScreen = document.getElementById('welcome-screen');
             let progress = 0;
 
             const loadInterval = setInterval(() => {
-                progress += 10;
+                progress += 20; // Aumento de la velocidad de carga
                 progressBar.style.width = `${progress}%`;
 
                 if(progress >= 100) {
                     clearInterval(loadInterval);
-                    document.getElementById('welcome-screen').style.display = 'none';
-                    document.querySelector('.main-content').style.display = 'block';
-                    showSection('Inicio');
+                    // Añade una clase para transicionar la opacidad
+                    welcomeScreen.classList.add('hidden');
+                    // Después de la transición, oculta completamente
+                    welcomeScreen.addEventListener('transitionend', () => {
+                        welcomeScreen.style.display = 'none';
+                        document.querySelector('.main-content').style.display = 'block';
+                        showSection('Inicio'); // Asegura que la sección de inicio se muestre
+                    }, { once: true });
                 }
-            }, 300);
+            }, 100); // Intervalo más rápido
         });
 
         // Mostrar secciones
         function showSection(sectionId) {
             document.querySelectorAll('.info-section').forEach(section => {
                 section.classList.remove('active');
-                if(section.id === sectionId) {
-                    section.classList.add('active');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
             });
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Ocultar el menú en móviles después de seleccionar una sección
+            const nav = document.querySelector('nav');
+            if (nav.classList.contains('active') && window.innerWidth <= 768) {
+                nav.classList.remove('active');
+            }
         }
 
         // JavaScript para el funcionamiento de las ventanas emergentes
@@ -643,9 +797,9 @@
             document.getElementById(popupId).style.display = "none";
         }
 
-        // Cerrar la ventana emergente si se hace clic fuera de la imagen
+        // Cerrar la ventana emergente si se hace clic fuera del contenido
         window.onclick = function(event) {
-            if (event.target.className === 'popup') {
+            if (event.target.classList.contains('popup')) {
                 event.target.style.display = "none";
             }
         }
