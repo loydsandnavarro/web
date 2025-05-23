@@ -32,7 +32,6 @@
             align-items: center;
             justify-content: space-between;
             box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Sombra más pronunciada */
-            /* Add this to allow header to grow and push content when nav is active */
             transition: height 0.3s ease-in-out;
         }
 
@@ -92,7 +91,6 @@
         /* Ajuste para el header fijo */
         .main-content {
             padding: 1.5rem;
-            /* Add transition for smooth margin-top change */
             transition: margin-top 0.3s ease-in-out;
         }
 
@@ -212,6 +210,15 @@
             visibility: hidden;
         }
 
+        /* Ajuste del tamaño del logo en la pantalla de bienvenida */
+        #welcome-screen .logo img {
+            height: 6rem; /* 50% más grande que el 4rem base, 4 * 1.5 = 6 */
+            width: auto; /* Mantener la proporción */
+            display: block; /* Asegurarse de que ocupe su propio espacio */
+            margin-bottom: 2rem; /* Espacio debajo del logo */
+        }
+
+
         .progress-container {
             width: 18rem;
             height: 1rem;
@@ -234,7 +241,7 @@
             background: none;
             border: none;
             color: white;
-            font-size: 1.5rem; /* Ícono más grande */
+            font-size: 1.8rem; /* Ícono más grande */
             cursor: pointer;
             padding: 0.5rem;
         }
@@ -321,8 +328,7 @@
             header {
                 padding: 0.8rem;
                 flex-wrap: nowrap; /* Evita que el logo y el toggle se envuelvan */
-                /* Remove fixed height, let it grow with content */
-                height: auto; 
+                height: auto;
             }
 
             .menu-toggle {
@@ -339,7 +345,6 @@
                 left: 0;
                 box-shadow: 0 4px 8px rgba(0,0,0,0.2);
                 padding-bottom: 1rem;
-                /* Add a max-height and overflow to prevent extremely long menus */
                 max-height: calc(100vh - 5rem); /* Adjust 5rem based on header min-height */
                 overflow-y: auto;
             }
@@ -377,7 +382,7 @@
             }
 
             .logo img {
-                height: 7.5rem;
+                height: 3.5rem;
             }
 
             /* Adjust the margin-top for the main content in mobile */
@@ -386,9 +391,6 @@
                 padding: 1rem;
             }
             
-            /* Remove the calc(5rem + 100vh) which was causing issues */
-            /* The adjustMainContentMargin JS function will handle this dynamically */
-
             .info-section {
                 margin: 1.5rem auto;
                 padding: 1.5rem;
@@ -420,9 +422,7 @@
                 margin-top: 5.5rem; /* A default margin, will be adjusted by JS */
                 padding: 0.8rem;
             }
-            /* Remove the calc(5rem + 100vh) which was causing issues */
-            /* The adjustMainContentMargin JS function will handle this dynamically */
-
+            
             .info-section {
                 padding: 1rem;
             }
@@ -764,7 +764,6 @@
 
         menuToggle.addEventListener('click', () => {
             nav.classList.toggle('active');
-            // We no longer need to toggle 'expanded' class on header, as height is auto
             adjustMainContentMargin(); // Adjust margin whenever menu is toggled
         });
 
@@ -784,7 +783,8 @@
                     welcomeScreen.classList.add('hidden');
                     welcomeScreen.addEventListener('transitionend', () => {
                         welcomeScreen.style.display = 'none';
-                        document.querySelector('.main-content').style.display = 'block';
+                        // The main-content is already display:block initially, so we don't need this line.
+                        // document.querySelector('.main-content').style.display = 'block';
                         adjustMainContentMargin(); // Ensure margin is correct after load
                         showSection('Inicio'); // Asegura que la sección de inicio se muestre
                     }, { once: true });
@@ -794,14 +794,14 @@
 
         // Función para ajustar el margin-top del main-content dinámicamente
         function adjustMainContentMargin() {
-            if (window.innerWidth <= 768) {
-                // For mobile, calculate based on header and potentially expanded nav height
-                const headerHeight = header.offsetHeight;
-                const navHeight = nav.classList.contains('active') ? nav.offsetHeight : 0;
+            const headerHeight = header.offsetHeight; // Get the current height of the header
+            if (window.innerWidth <= 768 && nav.classList.contains('active')) {
+                // For mobile and active nav, calculate based on header and expanded nav height
+                const navHeight = nav.offsetHeight;
                 mainContent.style.marginTop = `${headerHeight + navHeight}px`;
             } else {
-                // For desktop, just use the header height
-                mainContent.style.marginTop = `${header.offsetHeight}px`;
+                // For desktop, or mobile with collapsed nav, just use the header height
+                mainContent.style.marginTop = `${headerHeight}px`;
             }
         }
 
@@ -836,7 +836,6 @@
             // Ocultar el menú en móviles después de seleccionar una sección o sub-sección
             if (nav.classList.contains('active') && window.innerWidth <= 768) {
                 nav.classList.remove('active');
-                // No need to remove 'expanded' class as it's not being used for height adjustment
                 adjustMainContentMargin(); // Reajusta el margen al cerrar el menú
             }
         }
