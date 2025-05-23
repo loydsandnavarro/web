@@ -32,6 +32,8 @@
             align-items: center;
             justify-content: space-between;
             box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Sombra más pronunciada */
+            /* Add this to allow header to grow and push content when nav is active */
+            transition: height 0.3s ease-in-out;
         }
 
         .logo img {
@@ -87,9 +89,11 @@
             display: block;
         }
 
+        /* Ajuste para el header fijo */
         .main-content {
-            margin-top: 7.5rem; /* Ajuste para el header fijo */
             padding: 1.5rem;
+            /* Add transition for smooth margin-top change */
+            transition: margin-top 0.3s ease-in-out;
         }
 
         .info-section {
@@ -317,6 +321,8 @@
             header {
                 padding: 0.8rem;
                 flex-wrap: nowrap; /* Evita que el logo y el toggle se envuelvan */
+                /* Remove fixed height, let it grow with content */
+                height: auto; 
             }
 
             .menu-toggle {
@@ -329,10 +335,13 @@
                 flex-direction: column;
                 background-color: #00183c; /* Fondo para el menú expandido */
                 position: absolute;
-                top: 5rem; /* Debajo del header */
+                top: 100%; /* Position relative to the header, directly below it */
                 left: 0;
                 box-shadow: 0 4px 8px rgba(0,0,0,0.2);
                 padding-bottom: 1rem;
+                /* Add a max-height and overflow to prevent extremely long menus */
+                max-height: calc(100vh - 5rem); /* Adjust 5rem based on header min-height */
+                overflow-y: auto;
             }
 
             nav.active {
@@ -371,10 +380,14 @@
                 height: 3.5rem;
             }
 
+            /* Adjust the margin-top for the main content in mobile */
             .main-content {
-                margin-top: 6rem;
+                margin-top: 5.5rem; /* A default margin, will be adjusted by JS */
                 padding: 1rem;
             }
+            
+            /* Remove the calc(5rem + 100vh) which was causing issues */
+            /* The adjustMainContentMargin JS function will handle this dynamically */
 
             .info-section {
                 margin: 1.5rem auto;
@@ -404,9 +417,11 @@
             }
 
             .main-content {
-                margin-top: 5.5rem;
+                margin-top: 5.5rem; /* A default margin, will be adjusted by JS */
                 padding: 0.8rem;
             }
+            /* Remove the calc(5rem + 100vh) which was causing issues */
+            /* The adjustMainContentMargin JS function will handle this dynamically */
 
             .info-section {
                 padding: 1rem;
@@ -438,7 +453,7 @@
 
     <header>
         <div class="logo">
-            <a href="#Inicio">
+            <a href="#Inicio" onclick="showSection('Inicio')">
                 <img src="path/to/logo-loyds-navarro.png" alt="Logo">
             </a>
         </div>
@@ -468,7 +483,7 @@
             <h2>Bienvenido a Loyd's y Navarro</h2>
             <p>Descubre soluciones de protección y ahorro para tu futuro y el de tu familia.</p>
             <div class="video-container">
-                <video controls>
+                <video controls playsinline muted>
                     <source src="path/to/im2.mp4" type="video/mp4">
                     Tu navegador no soporta el formato de video.
                 </video>
@@ -478,8 +493,8 @@
         <section id="seguBeca" class="info-section" style="background-image: url('path/to/nino.jpg'); background-size: cover; background-position: center; color: #333;">
             <h2 style="text-align: center;">SeguBeca</h2>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/VIDEO_ID_SEGU_BECA?controls=1&modestbranding=1&rel=0"
-                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
             <p>Anticípate al futuro, ¡asegura su educación!</p>
             <p>SeguBeca te ayuda a concretar los sueños de tus hijos y/o dependientes, garantizando su educación y el acceso a los recursos necesarios para alcanzarlos.</p>
@@ -502,8 +517,8 @@
         <section id="vidaMujer" class="info-section" style="background-image: url('path/to/vida.jpg'); background-size: cover; background-position: center; color: #333;">
             <h2 style="text-align: center;">Vida Mujer</h2>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/VIDEO_ID_VIDA_MUJER?controls=1&modestbranding=1&rel=0"
-                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
             <p>Vida Mujer es un seguro diseñado especialmente para mujeres, brindando tranquilidad y respaldo financiero en caso de fallecimiento, invalidez o enfermedades graves.</p>
             <h3 style="text-align: center;">Características:</h3>
@@ -518,8 +533,8 @@
         <section id="orvi" class="info-section" style="background-image: url('path/to/orvi.jpg'); background-size: cover; background-position: center; color: #333;">
             <h2>Orvi</h2>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/VIDEO_ID_ORVI?controls=1&modestbranding=1&rel=0"
-                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
             <p>El Seguro que proporciona seguridad, protección, así como un ahorro para ti y tu familia</p>
             <p>Orvi es un seguro de vida que te brinda la seguridad de que tus seres queridos estarán protegidos financieramente en caso de fallecimiento o invalidez.</p>
@@ -541,8 +556,8 @@
         <section id="gastosMedicos" class="info-section" style="background-image: url('path/to/background-image.jpg'); background-size: cover; background-position: center; color: #333; padding: 20px;">
             <h2 style="text-align: center;">Seguro de Gastos Médicos Mayores</h2>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/VIDEO_ID_GASTOS_MEDICOS?controls=1&modestbranding=1&rel=0"
-                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_4"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
             <h3 style="text-align: center;">¿Por qué adquirir un Seguro de Gastos Médicos Mayores?</h3>
             <ul>
@@ -664,7 +679,7 @@
                 <a href="https://www.facebook.com/loydsandnavarro/" target="_blank" aria-label="Facebook">
                     <img src="path/to/facebook-icon.png" alt="Facebook">
                 </a>
-                <a href="https://www.youtube.com/channel/TU_CANAL_DE_YOUTUBE" target="_blank" aria-label="YouTube">
+                <a href="https://www.youtube.com/@nombredeusuario" target="_blank" aria-label="YouTube">
                     <img src="path/to/youtube-icon.png" alt="YouTube">
                 </a>
                 <a href="https://wa.me/527225886862?text=Me%20gustaría%20obtener%20más%20información" target="_blank" aria-label="WhatsApp">
@@ -730,7 +745,7 @@
                 <a href="https://www.facebook.com/loydsandnavarro/" target="_blank" aria-label="Facebook">
                     <img src="path/to/facebook-icon.png" alt="Facebook">
                 </a>
-                <a href="https://www.youtube.com/channel/TU_CANAL_DE_YOUTUBE" target="_blank" aria-label="YouTube">
+                <a href="https://www.youtube.com/@nombredeusuario" target="_blank" aria-label="YouTube">
                     <img src="path/to/youtube-icon.png" alt="YouTube">
                 </a>
                 <a href="https://wa.me/527225886862?text=Me%20gustaría%20obtener%20más%20información" target="_blank" aria-label="WhatsApp">
@@ -742,8 +757,15 @@
     </div>
     <script>
         // Menú Hamburguesa
-        document.querySelector('.menu-toggle').addEventListener('click', () => {
-            document.querySelector('nav').classList.toggle('active');
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+        const header = document.querySelector('header');
+        const mainContent = document.querySelector('.main-content');
+
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            // We no longer need to toggle 'expanded' class on header, as height is auto
+            adjustMainContentMargin(); // Adjust margin whenever menu is toggled
         });
 
         // Carga progresiva y ocultar pantalla de bienvenida
@@ -754,23 +776,40 @@
 
             const loadInterval = setInterval(() => {
                 progress += 20; // Aumento de la velocidad de carga
+                if (progress > 100) progress = 100; // Asegura que no exceda 100%
                 progressBar.style.width = `${progress}%`;
 
                 if(progress >= 100) {
                     clearInterval(loadInterval);
-                    // Añade una clase para transicionar la opacidad
                     welcomeScreen.classList.add('hidden');
-                    // Después de la transición, oculta completamente
                     welcomeScreen.addEventListener('transitionend', () => {
                         welcomeScreen.style.display = 'none';
                         document.querySelector('.main-content').style.display = 'block';
+                        adjustMainContentMargin(); // Ensure margin is correct after load
                         showSection('Inicio'); // Asegura que la sección de inicio se muestre
                     }, { once: true });
                 }
             }, 100); // Intervalo más rápido
         });
 
-        // Mostrar secciones
+        // Función para ajustar el margin-top del main-content dinámicamente
+        function adjustMainContentMargin() {
+            if (window.innerWidth <= 768) {
+                // For mobile, calculate based on header and potentially expanded nav height
+                const headerHeight = header.offsetHeight;
+                const navHeight = nav.classList.contains('active') ? nav.offsetHeight : 0;
+                mainContent.style.marginTop = `${headerHeight + navHeight}px`;
+            } else {
+                // For desktop, just use the header height
+                mainContent.style.marginTop = `${header.offsetHeight}px`;
+            }
+        }
+
+        // Ejecutar al cargar y al redimensionar la ventana
+        window.addEventListener('resize', adjustMainContentMargin);
+        window.addEventListener('DOMContentLoaded', adjustMainContentMargin); // Asegura que se ajuste incluso antes de `load`
+
+        // Mostrar secciones y cerrar menú en móviles si está abierto
         function showSection(sectionId) {
             document.querySelectorAll('.info-section').forEach(section => {
                 section.classList.remove('active');
@@ -778,29 +817,46 @@
             const targetSection = document.getElementById(sectionId);
             if (targetSection) {
                 targetSection.classList.add('active');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Use setTimeout to ensure the margin is adjusted before scrolling
+                // This helps in accurately calculating the scroll position
+                setTimeout(() => {
+                    const headerOffset = header.offsetHeight; // Get the current height of the header
+                    const elementPosition = targetSection.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }, 0); // Use a small timeout to ensure DOM is updated
+
             }
 
-            // Ocultar el menú en móviles después de seleccionar una sección
-            const nav = document.querySelector('nav');
+            // Ocultar el menú en móviles después de seleccionar una sección o sub-sección
             if (nav.classList.contains('active') && window.innerWidth <= 768) {
                 nav.classList.remove('active');
+                // No need to remove 'expanded' class as it's not being used for height adjustment
+                adjustMainContentMargin(); // Reajusta el margen al cerrar el menú
             }
         }
 
         // JavaScript para el funcionamiento de las ventanas emergentes
         function openPopup(popupId) {
             document.getElementById(popupId).style.display = "block";
+            document.body.style.overflow = "hidden"; // Evita el scroll del fondo
         }
 
         function closePopup(popupId) {
             document.getElementById(popupId).style.display = "none";
+            document.body.style.overflow = ""; // Restaura el scroll del fondo
         }
 
         // Cerrar la ventana emergente si se hace clic fuera del contenido
         window.onclick = function(event) {
             if (event.target.classList.contains('popup')) {
                 event.target.style.display = "none";
+                document.body.style.overflow = ""; // Restaura el scroll del fondo
             }
         }
     </script>
