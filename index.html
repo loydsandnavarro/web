@@ -125,27 +125,29 @@
             text-align: justify;
         }
 
-    .video-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px; /* <--- ESTA ES LA LÍNEA QUE DEBES CAMBIAR */
-            margin: 0 auto 2rem;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-        }
+.video-container {
+    position: relative;
+    width: 100%; /* Asegura que se adapte al ancho disponible */
+    max-width: 500px; /* Nuevo: Reducido a la mitad de 800px para una reducción del 50% */
+    margin: 0 auto 2rem;
+    padding-top: 25.25%; /* Mantiene la relación de aspecto 16:9 (altura = 56.25% del ancho) */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
 
-        .video-container video,
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px; /* Asegura que el video también tenga los bordes redondeados */
-        }
+.video-container video,
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* El video/iframe ocupa el 100% del contenedor */
+    height: 100%; /* El video/iframe ocupa el 100% del contenedor */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
 
         footer {
             background-color: #00183c;
@@ -493,8 +495,8 @@
         <section id="seguBeca" class="info-section" style="background-image: url('path/to/nino.jpg'); background-size: cover; background-position: center; color: #333;">
             <h2 style="text-align: center;">SeguBeca</h2>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/3spm6MST5Vg"
-                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/3spm6MST5Vg?enablejsapi=1"
+				frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
             <p>Anticípate al futuro, ¡asegura su educación!</p>
             <p>SeguBeca te ayuda a concretar los sueños de tus hijos y/o dependientes, garantizando su educación y el acceso a los recursos necesarios para alcanzarlos.</p>
@@ -517,7 +519,7 @@
         <section id="vidaMujer" class="info-section" style="background-image: url('path/to/vida.jpg'); background-size: cover; background-position: center; color: #333;">
             <h2 style="text-align: center;">Vida Mujer</h2>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/zleFaIfDJzA"
+                <iframe src="https://www.youtube.com/embed/zleFaIfDJzA?enablejsapi=1"
                         frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
             <p>Vida Mujer es un seguro diseñado especialmente para mujeres, brindando tranquilidad y respaldo financiero en caso de fallecimiento, invalidez o enfermedades graves.</p>
@@ -533,7 +535,7 @@
         <section id="orvi" class="info-section" style="background-image: url('path/to/orvi.jpg'); background-size: cover; background-position: center; color: #333;">
             <h2>Orvi</h2>
          <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/YipVnndbnao"
+    <iframe src="https://www.youtube.com/embed/YipVnndbnao?enablejsapi=1"
             frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
 </div>
 <p>Orvi de Seguros Monterrey es un seguro de vida diseñado para brindarte tranquilidad, respaldo económico y protección integral para ti y tu familia.</p>
@@ -550,7 +552,7 @@
         <section id="imaginaSer" class="info-section" style="background-image: url('path/to/imag.jpg'); background-size: cover; background-position: center; color: #333;">
             <h2>Imagina Ser</h2>
             <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/yrb-SnchZ2Y"
+    <iframe src="https://www.youtube.com/embed/yrb-SnchZ2Y?enablejsapi=1"
             frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
 </div>
 
@@ -583,7 +585,7 @@
         <section id="gastosMedicos" class="info-section" style="background-image: url('path/to/background-image.jpg'); background-size: cover; background-position: center; color: #333; padding: 20px;">
             <h2 style="text-align: center;">Seguro de Gastos Médicos Mayores</h2>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/u7kru4Wg5bQ"
+                <iframe src="https://www.youtube.com/embed/u7kru4Wg5bQ?enablejsapi=1"
                         frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
             <h3 style="text-align: center;">¿Por qué adquirir un Seguro de Gastos Médicos Mayores?</h3>
@@ -707,7 +709,7 @@
                 <a href="https://www.facebook.com/loydsandnavarro/" target="_blank" aria-label="Facebook">
                     <img src="path/to/facebook-icon.png" alt="Facebook">
                 </a>
-                <a href="https://www.youtube.com/@nombredeusuario" target="_blank" aria-label="YouTube">
+                <a href="https://www.youtube.com/@loydsandnavarro" target="_blank" aria-label="YouTube">
                     <img src="path/to/youtube-icon.png" alt="YouTube">
                 </a>
                 <a href="https://wa.me/527225886862?text=Me%20gustaría%20obtener%20más%20información" target="_blank" aria-label="WhatsApp">
@@ -784,6 +786,8 @@
         </footer>
     </div>
     <script>
+	
+	
         // Menú Hamburguesa
         const menuToggle = document.querySelector('.menu-toggle');
         const nav = document.querySelector('nav');
@@ -838,10 +842,12 @@
         window.addEventListener('DOMContentLoaded', adjustMainContentMargin); // Asegura que se ajuste incluso antes de `load`
 
         // Mostrar secciones y cerrar menú en móviles si está abierto
-        function showSection(sectionId) {
-            document.querySelectorAll('.info-section').forEach(section => {
-                section.classList.remove('active');
-            });
+       function showSection(sectionId) {
+    stopAllVideos(); // Añade esta línea al inicio
+    
+    document.querySelectorAll('.info-section').forEach(section => {
+        section.classList.remove('active');
+    });
             const targetSection = document.getElementById(sectionId);
             if (targetSection) {
                 targetSection.classList.add('active');
@@ -886,6 +892,21 @@
                 document.body.style.overflow = ""; // Restaura el scroll del fondo
             }
         }
+		function stopAllVideos() {
+    // Detener videos HTML5
+    document.querySelectorAll('video').forEach(video => {
+        video.pause();
+        video.currentTime = 0;
+    });
+    
+    // Detener videos de YouTube
+    document.querySelectorAll('iframe').forEach(iframe => {
+        if (iframe.src.includes('youtube.com/embed')) {
+            // Enviar comando para detener el video
+            iframe.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
+        }
+    });
+}
     </script>
 </body>
 </html>
