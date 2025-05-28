@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<script src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <title>Loyd's y Navarro</title>
@@ -15,25 +14,11 @@
             padding: 0;
             background-color: #f5f5f5;
             font-size: 1rem;
-            line-height: 1.6; /* Mejora la legibilidad */
+            line-height: 1.6;
             color: #333;
+            -webkit-text-size-adjust: 100%;
         }
-/* Mejora la respuesta táctil */
-nav ul li a {
-    -webkit-tap-highlight-color: rgba(0,0,0,0.1);
-    padding: 1rem 1.5rem; /* Aumenta el área táctil */
-}
 
-/* Asegura que los submenús sean accesibles en iOS */
-.submenu {
-    touch-action: manipulation;
-}
-
-/* Mejora la respuesta del menú hamburguesa */
-.menu-toggle {
-    -webkit-tap-highlight-color: transparent;
-    padding: 1rem; /* Área táctil más grande */
-}
         header {
             background-color: #00183c;
             color: #fff;
@@ -47,7 +32,7 @@ nav ul li a {
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Sombra más pronunciada */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
             transition: height 0.3s ease-in-out;
         }
 
@@ -61,7 +46,7 @@ nav ul li a {
             padding: 0;
             margin: 0;
             display: flex;
-            gap: 1.5rem; /* Aumento del espacio entre elementos del menú */
+            gap: 1.5rem;
         }
 
         nav ul li {
@@ -71,16 +56,17 @@ nav ul li a {
         nav ul li a {
             color: #fff;
             text-decoration: none;
-            padding: 0.7rem 1.2rem; /* Aumento del padding para mejor clic */
+            padding: 0.7rem 1.2rem;
             border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.2s ease; /* Transición en hover */
+            transition: background-color 0.3s ease, transform 0.2s ease;
             display: block;
             white-space: nowrap;
+            -webkit-tap-highlight-color: rgba(0,0,0,0.1);
         }
 
         nav ul li a:hover {
             background-color: #003366;
-            transform: translateY(-2px); /* Pequeño efecto al pasar el ratón */
+            transform: translateY(-2px);
         }
 
         .submenu {
@@ -90,14 +76,15 @@ nav ul li a {
             left: 0;
             background-color: #00183c;
             min-width: 200px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Sombra más pronunciada para el submenú */
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
             border-radius: 5px;
             z-index: 1001;
-            padding: 0.5rem 0; /* Espaciado interno del submenú */
+            padding: 0.5rem 0;
+            touch-action: manipulation;
         }
 
         .submenu li a {
-            padding: 0.8rem 1.5rem; /* Ajuste para los elementos del submenú */
+            padding: 0.8rem 1.5rem;
         }
 
         nav ul li:hover .submenu {
@@ -108,17 +95,18 @@ nav ul li a {
         .main-content {
             padding: 1.5rem;
             transition: margin-top 0.3s ease-in-out;
+            display: block;
         }
 
         .info-section {
             background: #fff;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 2rem; /* Aumento del padding interno */
+            padding: 2rem;
             margin: 2rem auto;
             max-width: 1000px;
             display: none;
-            animation: fadeIn 0.8s ease-out; /* Animación de aparición */
+            animation: fadeIn 0.8s ease-out;
         }
 
         .info-section.active {
@@ -141,29 +129,27 @@ nav ul li a {
             text-align: justify;
         }
 
-.video-container {
-    position: relative;
-    width: 100%; /* Asegura que se adapte al ancho disponible */
-    max-width: 500px; /* Nuevo: Reducido a la mitad de 800px para una reducción del 50% */
-    margin: 0 auto 2rem;
-    padding-top: 50.25%; /* Mantiene la relación de aspecto 16:9 (altura = 56.25% del ancho) */
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-}
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 2rem;
+            padding-top: 50.25%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
 
-.video-container video,
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; /* El video/iframe ocupa el 100% del contenedor */
-    height: 100%; /* El video/iframe ocupa el 100% del contenedor */
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-
+        .video-container video,
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
 
         footer {
             background-color: #00183c;
@@ -171,7 +157,7 @@ nav ul li a {
             padding: 1.5rem;
             text-align: center;
             margin-top: 3rem;
-            box-shadow: 0 -2px 8px rgba(0,0,0,0.2); /* Sombra superior */
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.2);
         }
 
         .social-buttons {
@@ -182,13 +168,13 @@ nav ul li a {
         }
 
         .social-buttons img {
-            width: 2.8rem; /* Tamaño un poco más grande */
+            width: 2.8rem;
             height: 2.8rem;
             transition: transform 0.3s ease;
         }
 
         .social-buttons img:hover {
-            transform: scale(1.1); /* Efecto al pasar el ratón */
+            transform: scale(1.1);
         }
 
         button {
@@ -200,7 +186,7 @@ nav ul li a {
             cursor: pointer;
             font-size: 1rem;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            margin: 0.5rem; /* Espaciado entre botones */
+            margin: 0.5rem;
         }
 
         button:hover {
@@ -220,7 +206,7 @@ nav ul li a {
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            transition: opacity 0.5s ease; /* Transición para la desaparición */
+            transition: opacity 0.5s ease;
         }
 
         #welcome-screen.hidden {
@@ -228,14 +214,12 @@ nav ul li a {
             visibility: hidden;
         }
 
-        /* Ajuste del tamaño del logo en la pantalla de bienvenida */
-#welcome-screen .logo img {
-    height: 9rem; /* New, larger height */
-    width: auto; /* Maintain aspect ratio */
-    display: block; /* Ensures it behaves as a block for margins */
-    margin-bottom: 2rem; /* Space below the logo, adjust if needed */
-}
-
+        #welcome-screen .logo img {
+            height: 9rem;
+            width: auto;
+            display: block;
+            margin-bottom: 2rem;
+        }
 
         .progress-container {
             width: 18rem;
@@ -243,7 +227,7 @@ nav ul li a {
             background-color: #fff;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.2); /* Sombra interna para la barra */
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
         }
 
         #progress-bar {
@@ -259,22 +243,23 @@ nav ul li a {
             background: none;
             border: none;
             color: white;
-            font-size: 1.8rem; /* Ícono más grande */
+            font-size: 1.8rem;
             cursor: pointer;
-            padding: 0.5rem;
+            padding: 1rem;
+            -webkit-tap-highlight-color: transparent;
         }
 
         /* Estilos para ventanas emergentes */
         .popup {
             display: none;
             position: fixed;
-            z-index: 9990; /* Z-index alto pero por debajo de la pantalla de carga */
+            z-index: 9990;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.7); /* Oscurecer un poco más el fondo */
+            background-color: rgba(0,0,0,0.7);
             text-align: center;
             padding-top: 20px;
         }
@@ -282,14 +267,14 @@ nav ul li a {
         .popup .popup-content {
             background-color: #fff;
             color: #333;
-            padding: 2.5rem; /* Más padding */
+            padding: 2.5rem;
             border-radius: 10px;
             max-width: 800px;
             margin: 5% auto;
             position: relative;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3); /* Sombra más dramática */
-            animation: scaleIn 0.3s ease-out; /* Animación al abrir */
-            overflow-x: auto; /* Para tablas en popups */
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            animation: scaleIn 0.3s ease-out;
+            overflow-x: auto;
         }
 
         @keyframes scaleIn {
@@ -298,18 +283,18 @@ nav ul li a {
         }
 
         .popup img {
-            max-width: 90%; /* Ajuste para imágenes dentro de popups */
+            max-width: 90%;
             height: auto;
             display: block;
             margin: 20px auto;
-            border-radius: 8px; /* Bordes redondeados para imágenes en popups */
+            border-radius: 8px;
         }
 
         .close {
             position: absolute;
             top: 15px;
             right: 25px;
-            color: #555; /* Color más oscuro para el botón de cierre */
+            color: #555;
             font-size: 35px;
             font-weight: bold;
             cursor: pointer;
@@ -345,7 +330,7 @@ nav ul li a {
         @media (max-width: 768px) {
             header {
                 padding: 0.8rem;
-                flex-wrap: nowrap; /* Evita que el logo y el toggle se envuelvan */
+                flex-wrap: nowrap;
                 height: auto;
             }
 
@@ -357,18 +342,18 @@ nav ul li a {
                 width: 100%;
                 display: none;
                 flex-direction: column;
-                background-color: #00183c; /* Fondo para el menú expandido */
+                background-color: #00183c;
                 position: absolute;
-                top: 100%; /* Position relative to the header, directly below it */
+                top: 100%;
                 left: 0;
                 box-shadow: 0 4px 8px rgba(0,0,0,0.2);
                 padding-bottom: 1rem;
-                max-height: calc(100vh - 5rem); /* Adjust 5rem based on header min-height */
+                max-height: calc(100vh - 5rem);
                 overflow-y: auto;
             }
 
             nav.active {
-                display: flex; /* Cambia a flex para columnas */
+                display: flex;
             }
 
             nav ul {
@@ -379,7 +364,7 @@ nav ul li a {
             nav ul li {
                 width: 100%;
                 text-align: center;
-                border-bottom: 1px solid rgba(255,255,255,0.1); /* Separador para elementos del menú */
+                border-bottom: 1px solid rgba(255,255,255,0.1);
             }
 
             nav ul li:last-child {
@@ -392,20 +377,24 @@ nav ul li a {
             }
 
             .submenu {
-                position: static; /* Submenú se expande dentro del menú principal */
+                position: static;
                 width: 100%;
                 box-shadow: none;
                 border-radius: 0;
-                background-color: rgba(0,24,60,0.8); /* Ligeramente más oscuro para el submenú */
+                background-color: rgba(0,24,60,0.8);
+                display: none;
+            }
+
+            .submenu-active .submenu {
+                display: block;
             }
 
             .logo img {
                 height: 3.5rem;
             }
 
-            /* Adjust the margin-top for the main content in mobile */
             .main-content {
-                margin-top: 5.5rem; /* A default margin, will be adjusted by JS */
+                margin-top: 5.5rem;
                 padding: 1rem;
             }
             
@@ -415,9 +404,9 @@ nav ul li a {
             }
 
             button {
-                width: calc(100% - 1rem); /* Ocupa el ancho completo con un margen */
+                width: calc(100% - 1rem);
                 margin: 0.5rem auto;
-                display: block; /* Para centrar los botones */
+                display: block;
             }
 
             .popup .popup-content {
@@ -426,18 +415,18 @@ nav ul li a {
             }
 
             .popup-content th, .popup-content td {
-                padding: 8px; /* Menos padding para tabla en móviles */
+                padding: 8px;
                 font-size: 0.9em;
             }
         }
 
         @media (max-width: 480px) {
             html {
-                font-size: 15px; /* Ajuste base para móviles muy pequeños */
+                font-size: 15px;
             }
 
             .main-content {
-                margin-top: 5.5rem; /* A default margin, will be adjusted by JS */
+                margin-top: 5.5rem;
                 padding: 0.8rem;
             }
             
@@ -451,11 +440,12 @@ nav ul li a {
             }
 
             .popup .popup-content {
-                margin: 5% auto; /* Más arriba en pantallas muy pequeñas */
+                margin: 5% auto;
                 padding: 1rem;
             }
         }
     </style>
+    <script src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
 </head>
 <body>
     <div id="welcome-screen">
@@ -801,175 +791,184 @@ nav ul li a {
             <h4>Teléfonos: 55 4468 3547 / 722 588 6862.<br> Email: reservamatematica@gmail.com</h4>
         </footer>
     </div>
+
     <script>
-	
-	
-        // Menú Hamburguesa
+        // Variables globales
         const menuToggle = document.querySelector('.menu-toggle');
         const nav = document.querySelector('nav');
         const header = document.querySelector('header');
         const mainContent = document.querySelector('.main-content');
 
-        menuToggle.addEventListener('click', () => {
-            nav.classList.toggle('active');
-            adjustMainContentMargin(); // Adjust margin whenever menu is toggled
-        });
-
-        // Carga progresiva y ocultar pantalla de bienvenida
-        window.addEventListener('load', () => {
+        // Configuración inicial al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configura los eventos del menú
+            setupMenuEvents();
+            
+            // Configura el menú hamburguesa
+            menuToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                nav.classList.toggle('active');
+                adjustMainContentMargin();
+            });
+            
+            // Carga progresiva
             const progressBar = document.getElementById('progress-bar');
             const welcomeScreen = document.getElementById('welcome-screen');
-            let progress = 0;
-
-            const loadInterval = setInterval(() => {
-                progress += 20; // Aumento de la velocidad de carga
-                if (progress > 100) progress = 100; // Asegura que no exceda 100%
-                progressBar.style.width = `${progress}%`;
-
-                if(progress >= 100) {
-                    clearInterval(loadInterval);
-                    welcomeScreen.classList.add('hidden');
-                    welcomeScreen.addEventListener('transitionend', () => {
-                        welcomeScreen.style.display = 'none';
-                        // The main-content is already display:block initially, so we don't need this line.
-                        // document.querySelector('.main-content').style.display = 'block';
-                        adjustMainContentMargin(); // Ensure margin is correct after load
-                        showSection('Inicio'); // Asegura que la sección de inicio se muestre
-                    }, { once: true });
-                }
-            }, 100); // Intervalo más rápido
+            
+            if (progressBar && welcomeScreen) {
+                let progress = 0;
+                const loadInterval = setInterval(() => {
+                    progress += 20;
+                    progress = Math.min(progress, 100);
+                    progressBar.style.width = `${progress}%`;
+                    
+                    if(progress >= 100) {
+                        clearInterval(loadInterval);
+                        welcomeScreen.style.opacity = '0';
+                        setTimeout(() => {
+                            welcomeScreen.style.display = 'none';
+                            adjustMainContentMargin();
+                        }, 500);
+                    }
+                }, 100);
+            }
+            
+            // Ajusta el margen inicial
+            adjustMainContentMargin();
         });
 
-        // Función para ajustar el margin-top del main-content dinámicamente
-        function adjustMainContentMargin() {
-            const headerHeight = header.offsetHeight; // Get the current height of the header
-            if (window.innerWidth <= 768 && nav.classList.contains('active')) {
-                // For mobile and active nav, calculate based on header and expanded nav height
-                const navHeight = nav.offsetHeight;
-                mainContent.style.marginTop = `${headerHeight + navHeight}px`;
-            } else {
-                // For desktop, or mobile with collapsed nav, just use the header height
-                mainContent.style.marginTop = `${headerHeight}px`;
+        // Configura los eventos del menú
+        function setupMenuEvents() {
+            const menuLinks = document.querySelectorAll('nav a');
+            
+            menuLinks.forEach(link => {
+                // Elimina eventos anteriores para evitar duplicados
+                link.removeEventListener('click', handleMenuClick);
+                link.removeEventListener('touchstart', handleMenuClick);
+                
+                // Asigna nuevos eventos
+                link.addEventListener('click', handleMenuClick);
+                link.addEventListener('touchstart', handleMenuClick, { passive: false });
+            });
+            
+            // Eventos para submenús en móviles
+            document.querySelectorAll('nav ul li').forEach(item => {
+                if (item.querySelector('.submenu')) {
+                    item.addEventListener('click', function(e) {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            this.classList.toggle('submenu-active');
+                        }
+                    });
+                }
+            });
+        }
+
+        // Maneja los clicks en el menú
+        function handleMenuClick(e) {
+            if (this.hash) {
+                const sectionId = this.hash.substring(1);
+                showSection(sectionId, e);
             }
         }
 
-        // Ejecutar al cargar y al redimensionar la ventana
-        window.addEventListener('resize', adjustMainContentMargin);
-        window.addEventListener('DOMContentLoaded', adjustMainContentMargin); // Asegura que se ajuste incluso antes de `load`
-
-        // Mostrar secciones y cerrar menú en móviles si está abierto
-     function showSection(sectionId, event) {
-    // Previene el comportamiento por defecto solo si es un evento táctil
-    if (event && event.type === 'touchstart') {
-        event.preventDefault();
-    }
-    
-    stopAllVideos();
-    
-    // Oculta todas las secciones
-    document.querySelectorAll('.info-section').forEach(section => {
-        section.classList.remove('active');
-    });
-    
-    // Muestra la sección seleccionada
-    const targetSection = document.getElementById(sectionId);
-    if (targetSection) {
-        targetSection.classList.add('active');
-        
-        // Ajusta el scroll después de un pequeño retraso para permitir el renderizado
-        setTimeout(() => {
-            const headerHeight = header.offsetHeight;
-            const sectionPosition = targetSection.getBoundingClientRect().top;
-            const offsetPosition = sectionPosition + window.pageYOffset - headerHeight;
+        // Muestra una sección específica
+        function showSection(sectionId, event) {
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
             
-            // Scroll suave con polyfill para iOS
-            window.scroll({
-                top: offsetPosition,
-                behavior: 'smooth'
+            stopAllVideos();
+            
+            // Oculta todas las secciones
+            document.querySelectorAll('.info-section').forEach(section => {
+                section.classList.remove('active');
             });
-        }, 100);
-    }
-    
-    // Cierra el menú en dispositivos móviles
-    if (window.innerWidth <= 768 && nav.classList.contains('active')) {
-        nav.classList.remove('active');
-        adjustMainContentMargin();
-    }
-}
+            
+            // Muestra la sección seleccionada
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+                
+                // Ajusta el scroll después de un pequeño retraso
+                setTimeout(() => {
+                    const headerHeight = header.offsetHeight;
+                    const sectionPosition = targetSection.getBoundingClientRect().top;
+                    const offsetPosition = sectionPosition + window.pageYOffset - headerHeight;
+                    
+                    window.scroll({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }, 100);
+            }
+            
+            // Cierra el menú en dispositivos móviles
+            if (window.innerWidth <= 768 && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                adjustMainContentMargin();
+            }
+        }
 
-        // JavaScript para el funcionamiento de las ventanas emergentes
+        // Ajusta el margen superior del contenido principal
+        function adjustMainContentMargin() {
+            const headerHeight = header.offsetHeight;
+            if (window.innerWidth <= 768) {
+                const navHeight = nav.classList.contains('active') ? nav.offsetHeight : 0;
+                mainContent.style.marginTop = `${headerHeight + navHeight}px`;
+            } else {
+                mainContent.style.marginTop = `${headerHeight}px`;
+            }
+            
+            // Forzar repintado para iOS
+            mainContent.style.display = 'none';
+            mainContent.offsetHeight; // Trigger reflow
+            mainContent.style.display = 'block';
+        }
+
+        // Detiene todos los videos
+        function stopAllVideos() {
+            // Detener videos HTML5
+            document.querySelectorAll('video').forEach(video => {
+                video.pause();
+                video.currentTime = 0;
+            });
+            
+            // Detener videos de YouTube
+            document.querySelectorAll('iframe').forEach(iframe => {
+                if (iframe.src.includes('youtube.com/embed')) {
+                    iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                }
+            });
+        }
+
+        // Ventanas emergentes
         function openPopup(popupId) {
-            document.getElementById(popupId).style.display = "block";
-            document.body.style.overflow = "hidden"; // Evita el scroll del fondo
+            stopAllVideos();
+            document.getElementById(popupId).style.display = "flex";
+            document.body.style.overflow = "hidden";
+            document.body.style.position = "fixed";
         }
 
         function closePopup(popupId) {
             document.getElementById(popupId).style.display = "none";
-            document.body.style.overflow = ""; // Restaura el scroll del fondo
+            document.body.style.overflow = "";
+            document.body.style.position = "";
         }
 
-        // Cerrar la ventana emergente si se hace clic fuera del contenido
+        // Cierra la ventana emergente si se hace clic fuera del contenido
         window.onclick = function(event) {
             if (event.target.classList.contains('popup')) {
                 event.target.style.display = "none";
-                document.body.style.overflow = ""; // Restaura el scroll del fondo
+                document.body.style.overflow = "";
+                document.body.style.position = "";
             }
         }
-		function stopAllVideos() {
-    // Detener videos HTML5
-    document.querySelectorAll('video').forEach(video => {
-        video.pause();
-        video.currentTime = 0;
-    });
-    // Habilita submenús en iOS
-document.querySelectorAll('nav ul li').forEach(item => {
-    item.addEventListener('touchstart', function(e) {
-        if (this.querySelector('.submenu')) {
-            e.preventDefault();
-            this.classList.toggle('submenu-active');
-        }
-    }, { passive: false });
-});
 
-// Y añade este CSS correspondiente:
-.submenu {
-    display: none;
-}
-.submenu-active .submenu {
-    display: block;
-}
-    // Detener videos de YouTube
-    document.querySelectorAll('iframe').forEach(iframe => {
-        if (iframe.src.includes('youtube.com/embed')) {
-            // Enviar comando para detener el video
-            iframe.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
-        }
-    });
-}
-	    // Asigna eventos tanto para click como para touch
-function setupMenuEvents() {
-    const menuLinks = document.querySelectorAll('nav a');
-    
-    menuLinks.forEach(link => {
-        // Elimina eventos anteriores para evitar duplicados
-        link.removeEventListener('click', handleMenuClick);
-        link.removeEventListener('touchstart', handleMenuClick);
-        
-        // Asigna nuevos eventos
-        link.addEventListener('click', handleMenuClick);
-        link.addEventListener('touchstart', handleMenuClick);
-    });
-}
-
-function handleMenuClick(e) {
-    const sectionId = this.getAttribute('href').substring(1);
-    showSection(sectionId, e);
-}
-
-// Llama a esta función después de cargar el DOM
-document.addEventListener('DOMContentLoaded', function() {
-    setupMenuEvents();
-});
+        // Ajusta el margen al redimensionar la ventana
+        window.addEventListener('resize', adjustMainContentMargin);
     </script>
 </body>
 </html>
