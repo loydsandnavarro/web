@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+	<script src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="HandheldFriendly" content="True">
@@ -17,7 +18,22 @@
             line-height: 1.6; /* Mejora la legibilidad */
             color: #333;
         }
+/* Mejora la respuesta táctil */
+nav ul li a {
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+    padding: 1rem 1.5rem; /* Aumenta el área táctil */
+}
 
+/* Asegura que los submenús sean accesibles en iOS */
+.submenu {
+    touch-action: manipulation;
+}
+
+/* Mejora la respuesta del menú hamburguesa */
+.menu-toggle {
+    -webkit-tap-highlight-color: transparent;
+    padding: 1rem; /* Área táctil más grande */
+}
         header {
             background-color: #00183c;
             color: #fff;
@@ -842,37 +858,44 @@
         window.addEventListener('DOMContentLoaded', adjustMainContentMargin); // Asegura que se ajuste incluso antes de `load`
 
         // Mostrar secciones y cerrar menú en móviles si está abierto
-       function showSection(sectionId) {
-    stopAllVideos(); // Añade esta línea al inicio
+     function showSection(sectionId, event) {
+    // Previene el comportamiento por defecto solo si es un evento táctil
+    if (event && event.type === 'touchstart') {
+        event.preventDefault();
+    }
     
+    stopAllVideos();
+    
+    // Oculta todas las secciones
     document.querySelectorAll('.info-section').forEach(section => {
         section.classList.remove('active');
     });
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.classList.add('active');
-                
-                // Use setTimeout to ensure the margin is adjusted before scrolling
-                // This helps in accurately calculating the scroll position
-                setTimeout(() => {
-                    const headerOffset = header.offsetHeight; // Get the current height of the header
-                    const elementPosition = targetSection.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = elementPosition - headerOffset;
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
-                    });
-                }, 0); // Use a small timeout to ensure DOM is updated
-
-            }
-
-            // Ocultar el menú en móviles después de seleccionar una sección o sub-sección
-            if (nav.classList.contains('active') && window.innerWidth <= 768) {
-                nav.classList.remove('active');
-                adjustMainContentMargin(); // Reajusta el margen al cerrar el menú
-            }
-        }
+    
+    // Muestra la sección seleccionada
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) {
+        targetSection.classList.add('active');
+        
+        // Ajusta el scroll después de un pequeño retraso para permitir el renderizado
+        setTimeout(() => {
+            const headerHeight = header.offsetHeight;
+            const sectionPosition = targetSection.getBoundingClientRect().top;
+            const offsetPosition = sectionPosition + window.pageYOffset - headerHeight;
+            
+            // Scroll suave con polyfill para iOS
+            window.scroll({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }, 100);
+    }
+    
+    // Cierra el menú en dispositivos móviles
+    if (window.innerWidth <= 768 && nav.classList.contains('active')) {
+        nav.classList.remove('active');
+        adjustMainContentMargin();
+    }
+}
 
         // JavaScript para el funcionamiento de las ventanas emergentes
         function openPopup(popupId) {
@@ -898,7 +921,23 @@
         video.pause();
         video.currentTime = 0;
     });
-    
+    // Habilita submenús en iOS
+document.querySelectorAll('nav ul li').forEach(item => {
+    item.addEventListener('touchstart', function(e) {
+        if (this.querySelector('.submenu')) {
+            e.preventDefault();
+            this.classList.toggle('submenu-active');
+        }
+    }, { passive: false });
+});
+
+// Y añade este CSS correspondiente:
+.submenu {
+    display: none;
+}
+.submenu-active .submenu {
+    display: block;
+}
     // Detener videos de YouTube
     document.querySelectorAll('iframe').forEach(iframe => {
         if (iframe.src.includes('youtube.com/embed')) {
@@ -907,6 +946,30 @@
         }
     });
 }
+	    // Asigna eventos tanto para click como para touch
+function setupMenuEvents() {
+    const menuLinks = document.querySelectorAll('nav a');
+    
+    menuLinks.forEach(link => {
+        // Elimina eventos anteriores para evitar duplicados
+        link.removeEventListener('click', handleMenuClick);
+        link.removeEventListener('touchstart', handleMenuClick);
+        
+        // Asigna nuevos eventos
+        link.addEventListener('click', handleMenuClick);
+        link.addEventListener('touchstart', handleMenuClick);
+    });
+}
+
+function handleMenuClick(e) {
+    const sectionId = this.getAttribute('href').substring(1);
+    showSection(sectionId, e);
+}
+
+// Llama a esta función después de cargar el DOM
+document.addEventListener('DOMContentLoaded', function() {
+    setupMenuEvents();
+});
     </script>
 </body>
 </html>
