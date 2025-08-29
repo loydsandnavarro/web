@@ -32,6 +32,7 @@
             color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
+            padding-top: 90px; /* Espacio para el header fijo */
         }
         
         h1, h2, h3, h4 {
@@ -72,6 +73,7 @@
         
         section {
             padding: 3rem 0;
+            scroll-margin-top: 90px; /* Para que el scroll no oculte el contenido detrás del header */
         }
         
         /* Header */
@@ -90,6 +92,7 @@
             justify-content: space-between;
             box-shadow: var(--shadow);
             transition: all 0.3s ease-in-out;
+            height: 90px; /* Altura fija para consistencia */
         }
         
         .logo {
@@ -221,7 +224,6 @@
         
         /* Contenido principal */
         .main-content {
-            margin-top: 6rem;
             padding: 1.5rem 0;
         }
         
@@ -604,11 +606,138 @@
             from { transform: scale(0.9); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
         }
+
+        /* Estilos para la sección UDIS y Ahorro */
+        #udisAhorro {
+            background: linear-gradient(180deg, #0b1020 0%, #0d1327 60%, #0e162f 100%);
+            color: #e8eefc;
+            padding: 2rem 0;
+        }
+        
+        #udisAhorro .container {
+            max-width: 1100px;
+        }
+        
+        #udisAhorro .card {
+            background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+            border: 1px solid rgba(255,255,255,.06);
+            border-radius: 18px;
+            padding: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.35);
+            margin-bottom: 16px;
+        }
+        
+        #udisAhorro h1, 
+        #udisAhorro h2, 
+        #udisAhorro h3 {
+            color: #7aa2ff;
+        }
+        
+        #udisAhorro p {
+            color: #e8eefc;
+        }
+        
+        #udisAhorro .muted {
+            color: #b8c4e3;
+        }
+        
+        #udisAhorro .pill {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(122,162,255,.12);
+            color: #7aa2ff;
+            font-weight: 600;
+            border: 1px solid rgba(122,162,255,.35);
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+        
+        #udisAhorro .highlight {
+            border-left: 4px solid #7aa2ff;
+            padding-left: 10px;
+        }
+        
+        #udisAhorro .table {
+            overflow: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,.08);
+            margin: 1.5rem 0;
+        }
+        
+        #udisAhorro table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 520px;
+        }
+        
+        #udisAhorro th, 
+        #udisAhorro td {
+            padding: 12px 14px;
+            text-align: left;
+        }
+        
+        #udisAhorro thead th {
+            position: sticky;
+            top: 0;
+            background: rgba(122,162,255,.12);
+            color: #e8eefc;
+        }
+        
+        #udisAhorro tbody tr:nth-child(odd) {
+            background: rgba(255,255,255,.03);
+        }
+        
+        #udisAhorro tbody tr:nth-child(even) {
+            background: rgba(255,255,255,.015);
+        }
+        
+        #udisAhorro .btn {
+            appearance: none;
+            border: 1px solid rgba(122,162,255,.45);
+            background: rgba(122,162,255,.15);
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        #udisAhorro .btn:hover {
+            transform: translateY(-1px);
+        }
+        
+        #udisAhorro details {
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 12px;
+            padding: 10px 12px;
+            background: rgba(255,255,255,.03);
+            margin-bottom: 10px;
+        }
+        
+        #udisAhorro summary {
+            cursor: pointer;
+            font-weight: 700;
+            color: #7aa2ff;
+        }
         
         /* Media Queries */
         @media (max-width: 768px) {
+            body {
+                padding-top: 80px; /* Ajuste para móviles */
+            }
+            
+            section {
+                scroll-margin-top: 80px; /* Ajuste para móviles */
+            }
+            
             header {
                 padding: 0.8rem;
+                height: 80px; /* Altura fija para móviles */
             }
             
             .menu-toggle {
@@ -670,10 +799,6 @@
             
             .submenu li a {
                 padding: 0.8rem 2rem;
-            }
-            
-            .main-content {
-                margin-top: 5.5rem;
             }
             
             .section-header h2 {
@@ -748,6 +873,7 @@
                     </ul>
                 </li>
                 <li><a href="#gastosMedicos" onclick="showSection('gastosMedicos')"><i class="fas fa-stethoscope"></i> Gastos Médicos</a></li>
+                <li><a href="#udisAhorro" onclick="showSection('udisAhorro')"><i class="fas fa-coins"></i> UDIS y Ahorro</a></li>
                 <li><a href="#reclutamiento" onclick="showSection('reclutamiento')"><i class="fas fa-users"></i> Reclutamiento</a></li>
                 <li><a href="#contacto" onclick="showSection('contacto')"><i class="fas fa-envelope"></i> Contacto</a></li>
             </ul>
@@ -797,7 +923,7 @@
                     
                     <!-- Vida Mujer -->
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDAxODNDIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0id2hpdGUiPlZpZGEgTXVqZXI8L3RleHQ+PC9zdmc+');"></div>
+                        <div class="product-image" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSI gaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDAxODNDIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0id2hpdGUiPlZpZGEgTXVqZXI8L3RleHQ+PC9zdmc+');"></div>
                         <div class="product-content">
                             <h3>Vida Mujer</h3>
                             <p>Vida Mujer es un seguro diseñado especialmente para mujeres, brindando tranquilidad y respaldo financiero en caso de fallecimiento, invalidez o enfermedades graves.</p>
@@ -807,7 +933,7 @@
                     
                     <!-- ORVI -->
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDAxODNDIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0id2hpdGUiPk9SVkk8L3RleHQ+PC9zdmc+");"></div>
+                        <div class="product-image" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDAxODNDIi8+PHRleHQgeD0iNTAlIiB5PSI50MCUiIGRvbWluYW50LWJbas2VsaW5lPSJtaWRkbGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0id2hpdGUiPk9SVkk8L3RleHQ+PC9zdmc+");"></div>
                         <div class="product-content">
                             <h3>ORVI</h3>
                             <p>Orvi de Seguros Monterrey es un seguro de vida diseñado para brindarte tranquilidad, respaldo económico y protección integral para ti y tu familia.</p>
@@ -817,7 +943,7 @@
                     
                     <!-- Imagina Ser -->
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDAxODNDIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0id2hpdGUiPkltYWdpbmEgU2VyPC90ZXh0Pjwvc3ZnPg==");"></div>
+                        <div class="product-image" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDAxODNDIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIHRleHQtYW5jaG9y=");"></div>
                         <div class="product-content">
                             <h3>Imagina Ser</h3>
                             <p>Imagina Ser de Seguros Monterrey es el plan de ahorro para el retiro que se adapta a tu estilo de vida y te motiva a construir el futuro que sueñas.</p>
@@ -991,7 +1117,7 @@
                     <ul>
                         <li><strong>Protección Personalizada y Completa:</strong> Un seguro individual ofrece una cobertura ajustada a tus necesidades específicas, a diferencia de los seguros colectivos que pueden ser genéricos.</li>
                         <li><strong>Estabilidad en Cambios:</strong> Las primas suelen aumentar y las condiciones cambian anualmente. Un seguro personal asegura una cobertura constante y adaptada a tus necesidades.</li>
-                        <li><strong>Reducción de Costos Médicos Altos:</strong> Te ayuda a mitigar altos costos médicos en el sector privado, cubriendo una parte significativa y reduciendo el impacto económico familiar.</li>
+                        <li><strong>Reducción de Costos Médicos Altos:</strong> Te ayuda to mitigate altos costos médicos en el sector privado, cubriendo una parte significativa y reduciendo el impacto económico familiar.</li>
                         <li><strong>Cobertura Independiente del Empleo:</strong> Ofrece protección continua sin importar tu situación laboral, a diferencia de los seguros proporcionados por empresas que solo cubren mientras estés contratado.</li>
                         <li><strong>Compensación Efectiva y Rápida:</strong> Los siniestros se indemnizan mediante desembolsos directos, facilitando la cobertura de gastos médicos sin demoras y simplificando el proceso.</li>
                     </ul>
@@ -1002,7 +1128,7 @@
                     <ul>
                         <li><strong>Cobertura Amplia:</strong> Protege contra una amplia gama de gastos médicos, incluyendo hospitalización, cirugía, consultas médicas, y tratamientos especializados.</li>
                         <li><strong>Beneficios por Enfermedades Críticas:</strong> Ofrece cobertura para enfermedades graves, garantizando apoyo financiero adicional en casos de diagnóstico de enfermedades críticas como cáncer, infarto o accidentes cerebrovasculares.</li>
-                        <li><strong>Cobertura por Accidentes y Enfermedades:</strong> Cubre gastos relacionados con accidentes y enfermedades, asegurando que estés protegido en diversas situaciones que puedan surgir.</li>
+                        <li><strong>Cobertura por Accidentes and Enfermedades:</strong> Cubre gastos relacionados con accidentes y enfermedades, asegurando que estés protegido en diversas situaciones que puedan surgir.</li>
                         <li><strong>Servicios de Atención Personalizada:</strong> Brinda asesoría médica y servicios de atención al cliente especializados para ayudarte a gestionar tus necesidades médicas y resolver cualquier duda sobre tu cobertura.</li>
                         <li><strong>Protección Financiera Contra Costos Elevados:</strong> Minimiza el impacto de los altos costos médicos, cubriendo una parte significativa de los gastos y protegiendo tu economía familiar.</li>
                         <li><strong>Renovación Garantizada:</strong> Ofrece la posibilidad de renovar tu póliza cada año sin necesidad de reavaluación médica, garantizando continuidad en tu protección a largo plazo.</li>
@@ -1064,6 +1190,155 @@
             </div>
         </section>
 
+        <!-- Sección UDIS y Ahorro -->
+        <section id="udisAhorro" class="info-section">
+            <div class="container">
+                <div class="udis-header">
+                    <div class="top">
+                        <div class="logo" aria-hidden="true"></div>
+                        <div>
+                            <h1>UDIS y Seguro con Ahorro</h1>
+                            <p class="subtitle">Guía clara para comprender qué son las UDIS, cómo funciona un seguro con ahorro y por qué conviene un plan de ahorro.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <main>
+                    <section class="grid">
+                        <article class="card">
+                            <h2>¿Qué son las <span class="pill">UDIS</span>?</h2>
+                            <p class="highlight">Las <strong>Unidades de Inversión (UDIS)</strong> son una unidad de cuenta que publica Banco de México. Su <strong>valor se actualiza diariamente con la inflación</strong>. Sirven para <strong>proteger tu poder adquisitivo</strong> en el tiempo.</p>
+                            <ul>
+                                <li><strong>Objetivo:</strong> que tus ahorros no pierdan valor real por inflación.</li>
+                                <li><strong>Dónde se usan:</strong> créditos hipotecarios, instrumentos de ahorro/inversión y seguros con componente de ahorro.</li>
+                                <li><strong>Cómo leerlas:</strong> el dinero se expresa en UDIS y luego se convierte a pesos al valor del día (ej. 1 UDI = $XX.XX MXN).</li>
+                            </ul>
+                            <p class="muted">Nota: El valor de la UDI cambia todos los días conforme al INPC. Al ahorrar en UDIS, tu ahorro se <em>indexa</em> a la inflación.</p>
+                        </article>
+
+                        <aside class="card">
+                            <h2>En una mirada</h2>
+                            <p>Ventajas principales de usar UDIS y un seguro con ahorro:</p>
+                            <ul>
+                                <li>✅ Tu ahorro <strong>acompaña la inflación</strong> (se mantiene en términos reales).</li>
+                                <li>🛡️ Tienes <strong>protección</strong> por fallecimiento u otros riesgos según la póliza.</li>
+                                <li>📅 Fomenta <strong>disciplina</strong> (aportaciones programadas).</li>
+                                <li>🎯 Ayuda a cumplir <strong>metas</strong> (estudios, enganche, retiro, emergencias).</li>
+                            </ul>
+                            <div class="cta">
+                                <a class="btn" href="#beneficios">Ver beneficios</a>
+                                <a class="btn" href="#faq">Dudas frecuentes</a>
+                            </div>
+                        </aside>
+                    </section>
+
+                    <section class="card">
+                        <h2>¿Qué es un <span class="pill">seguro con ahorro</span>?</h2>
+                        <p>Es una póliza que <strong>combina protección y ahorro/inversión</strong> en el mismo producto. Con tus aportaciones:</p>
+                        <ul>
+                            <li>Una parte cubre el <strong>seguro</strong> (por ejemplo, fallecimiento, invalidez o coberturas adicionales según el contrato).</li>
+                            <li>Otra parte se destina a <strong>ahorro</strong>, que puede estar <strong>denominado en UDIS</strong> para protegerse de la inflación.</li>
+                            <li>El ahorro genera <strong>rendimientos</strong> o se actualiza en función de la UDI, según el plan.</li>
+                        </ul>
+                        <p>Al final del plazo, puedes <strong>recibir el valor acumulado</strong> (y en algunos planes, <strong>rescates parciales</strong> durante el periodo, conforme a condiciones).</p>
+                    </section>
+
+                    <section class="card">
+                        <h2>¿Por qué es bueno tener un <span class="pill">plan de ahorro</span>?</h2>
+                        <ul>
+                            <li><strong>Disciplina automática:</strong> programar aportaciones evita "olvidar" ahorrar.</li>
+                            <li><strong>Metas claras:</strong> define objetivo, plazo y monto. Un plan te mantiene en ruta.</li>
+                            <li><strong>Protección de tu dinero:</strong> en UDIS, tu ahorro se <em>indexa</em> a la inflación.</li>
+                            <li><strong>Tranquilidad financiera:</strong> cuentas con respaldo ante imprevistos si lo haces dentro de un seguro con ahorro.</li>
+                            <li><strong>Hábitos saludables:</strong> crear un fondo para educación, vivienda, retiro o emergencias.</li>
+                        </ul>
+                    </section>
+
+                    <section id="beneficios" class="card">
+                        <h2>Beneficios de tener UDIS y un seguro con ahorro</h2>
+                        <ul>
+                            <li>💸 <strong>Poder adquisitivo protegido:</strong> el valor de tu ahorro sigue el ritmo de la inflación (UDIS).</li>
+                            <li>🛡️ <strong>Protección personal y familiar:</strong> coberturas del seguro según la póliza.</li>
+                            <li>🔁 <strong>Flexibilidad:</strong> algunos planes permiten <em>aportaciones extraordinarias</em> o <em>rescates parciales</em>.</li>
+                            <li>🧭 <strong>Planeación:</strong> metas y plazos definidos que te ayudan a cumplir objetivos específicos.</li>
+                            <li>📈 <strong>Rendimiento y constancia:</strong> el ahorro puede generar plusvalía o actualización en UDIS.</li>
+                        </ul>
+                    </section>
+
+                    <section class="card">
+                        <h2>Comparativa breve</h2>
+                        <div class="table">
+                            <table aria-label="Comparación entre ahorro tradicional y seguro con ahorro en UDIS">
+                                <thead>
+                                    <tr>
+                                        <th>Característica</th>
+                                        <th>Ahorro tradicional</th>
+                                        <th>Seguro con ahorro (UDIS)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Protección por fallecimiento</td>
+                                        <td>No incluida</td>
+                                        <td>Sí, incluida según la póliza</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Protección contra inflación</td>
+                                        <td>Depende del instrumento</td>
+                                        <td>Alta (indexado a UDIS)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Disciplina de ahorro</td>
+                                        <td>Voluntaria</td>
+                                        <td>Programada por contrato</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Rescates parciales</td>
+                                        <td>Variable</td>
+                                        <td>Posibles, según condiciones</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Objetivo/Plazo definido</td>
+                                        <td>Opcional</td>
+                                        <td>Claramente establecido</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section id="faq" class="card">
+                        <h2>Preguntas frecuentes</h2>
+                        <details>
+                            <summary>¿Las UDIS suben y bajan?</summary>
+                            <p>El valor en pesos de la UDI <strong>cambia diariamente</strong> y refleja la inflación; históricamente <strong>tiende a subir</strong> en pesos nominales porque la inflación en México suele ser positiva.</p>
+                        </details>
+                        <details>
+                            <summary>¿Puedo retirar antes del final del plazo?</summary>
+                            <p>Algunos planes permiten <strong>rescates parciales</strong> con reglas específicas (plazos, montos, costos). Revisa tu póliza o con tu asesor.</p>
+                        </details>
+                        <details>
+                            <summary>¿Qué pasa si dejo de pagar?</summary>
+                            <p>Existe un <strong>periodo de gracia</strong> y, después, podrían usarse valores de la póliza para mantenerla o podría cancelarse. Depende del contrato.</p>
+                        </details>
+                        <details>
+                            <summary>¿Tiene beneficios fiscales?</summary>
+                            <p>Es posible que existan <strong>tratamientos fiscales</strong> para ciertos productos y condiciones. Consulta a tu asesor y a tu contador para un caso particular.</p>
+                        </details>
+                    </section>
+
+                    <section class="card">
+                        <h2>¿Listo para empezar?</h2>
+                        <p>Define tu meta, plazo y monto mensual. Un plan en UDIS dentro de un seguro con ahorro puede darte <strong>protección + disciplina + poder adquisitivo</strong>.</p>
+                        <div class="cta">
+                            <a class="btn" href="#contacto" onclick="showSection('contacto')">Agendar asesoría</a>
+                            <a class="btn" href="#contacto" onclick="showSection('contacto')">Solicitar cotización</a>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </section>
+
         <!-- Misión y Visión -->
         <section id="misionVision" class="info-section">
             <div class="container">
@@ -1103,7 +1378,7 @@
                     
                     <div style="background: var(--white); padding: 1.5rem; border-radius: 12px; box-shadow: var(--shadow);">
                         <h3 style="color: var(--primary);"><i class="fas fa-star"></i> Compromiso con el cliente</h3>
-                        <p>Loyd’s & Navarro es una consultora con amplia experiencia en el mercado de seguros, comprometida con la satisfacción de nuestros clientes.</p>
+                        <p>Loyd's & Navarro es una consultora con amplia experiencia en el mercado de seguros, comprometida con la satisfacción de nuestros clientes.</p>
                     </div>
                 </div>
             </div>
@@ -1171,7 +1446,7 @@
                                     <li><strong>Impacto positivo:</strong> Ayuda a proteger el futuro de las personas y sus seres queridos.</li>
                                     <li><strong>Crecimiento profesional:</strong> Oportunidades de aprendizaje continuo y desarrollo personal.</li>
                                     <li><strong>Ambiente colaborativo:</strong> Trabaja en un equipo diverso y dinámico que valora tu contribución.</li>
-                                    <li><strong>Plan de compensación atractivo:</strong> Ingresos competitivos con bonos por desempeño.</li>
+                                    <li><strong>Plan de compensación atractivo:</strong> Ingresos competitivos con bonos por desempleo.</li>
                                     <li><strong>Flexibilidad horaria:</strong> Organiza tu tiempo según tus necesidades.</li>
                                 </ul>
                             </div>
@@ -1180,7 +1455,7 @@
                         <div>
                             <div style="background: #f0f7ff; padding: 1.5rem; border-radius: 8px;">
                                 <h4 style="color: var(--primary); text-align: center; margin-bottom: 1.5rem;"><i class="fas fa-paper-plane"></i> ¡Envía tu CV hoy!</h4>
-                                <p>Si tienes pasión por el servicio al cliente y quieres crecer en un sector que importa, ¡esperamos conocerte! Envía tu CV a <strong>reservamatematica@gmail.com</strong> y únete a nosotros en esta emocionante trayectoria en seguros de vida y ahorro.</p>
+                                <p>If you have a passion for customer service and want to grow in a sector that matters, we look forward to meeting you! Send your CV to <strong>reservamatematica@gmail.com</strong> and join us on this exciting journey in life insurance and savings.</p>
                                 
                                 <button class="btn" style="margin-top: 1.5rem; width: 100%;" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfQmtUIKi_CAbICRgC4jg07Dsrwgtz2On7ZOKtPoVGXjjgi2A/viewform?embedded=true', '_blank')">
                                     <i class="fas fa-user-plus"></i> Únete a nuestro equipo
@@ -1218,6 +1493,7 @@
                             <li><a href="#Inicio" onclick="showSection('Inicio')"><i class="fas fa-chevron-right"></i> Inicio</a></li>
                             <li><a href="#productos" onclick="showSection('productos')"><i class="fas fa-chevron-right"></i> Productos</a></li>
                             <li><a href="#gastosMedicos" onclick="showSection('gastosMedicos')"><i class="fas fa-chevron-right"></i> Gastos Médicos</a></li>
+                            <li><a href="#udisAhorro" onclick="showSection('udisAhorro')"><i class="fas fa-chevron-right"></i> UDIS y Ahorro</a></li>
                             <li><a href="#contacto" onclick="showSection('contacto')"><i class="fas fa-chevron-right"></i> Contacto</a></li>
                         </ul>
                     </div>
@@ -1264,11 +1540,9 @@
         const menuToggle = document.querySelector('.menu-toggle');
         const nav = document.querySelector('nav');
         const header = document.querySelector('header');
-        const mainContent = document.querySelector('.main-content');
 
         menuToggle.addEventListener('click', () => {
             nav.classList.toggle('active');
-            adjustMainContentMargin(); 
         });
 
         // Manejo de submenús en móvil
@@ -1299,25 +1573,10 @@
                     welcomeScreen.classList.add('hidden');
                     welcomeScreen.addEventListener('transitionend', () => {
                         welcomeScreen.style.display = 'none';
-                        adjustMainContentMargin(); 
                     }, { once: true });
                 }
             }, 350); 
         });
-
-        // Ajustar margen del contenido principal
-        function adjustMainContentMargin() {
-            const headerHeight = header.offsetHeight; 
-            if (window.innerWidth <= 768 && nav.classList.contains('active')) {
-                const navHeight = nav.offsetHeight;
-                mainContent.style.marginTop = `${headerHeight + navHeight}px`;
-            } else {
-                mainContent.style.marginTop = `${headerHeight}px`;
-            }
-        }
-
-        window.addEventListener('resize', adjustMainContentMargin);
-        window.addEventListener('DOMContentLoaded', adjustMainContentMargin); 
 
         // Mostrar secciones
         function showSection(sectionId) {
@@ -1330,17 +1589,14 @@
             if (targetSection) {
                 targetSection.classList.add('active');
                 
-                setTimeout(() => {
-                    const headerOffset = header.offsetHeight; 
-                    const elementPosition = targetSection.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = elementPosition - headerOffset;
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
-                    });
-                }, 0); 
-
+                // Desplazamiento suave con offset para el header
+                const headerHeight = header.offsetHeight;
+                const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: "smooth"
+                });
             }
 
             // Ocultar menú en móviles
@@ -1349,7 +1605,6 @@
                 document.querySelectorAll('nav ul li').forEach(item => {
                     item.classList.remove('submenu-open');
                 });
-                adjustMainContentMargin(); 
             }
         }
 
